@@ -6,17 +6,20 @@ using UnityEngine.UI;
 public class UIController : MonoSingleton<UIController>
 {
     //DATA
-    public Text ScoreText;
-    public Text LifeCount;
+    public TMPro.TextMeshProUGUI ScoreText;//TODO: TEXTMESHPRO
+    public TMPro.TextMeshProUGUI LifeCount;//TODO: TEXTMESHPRO
 
-    public GameObject GameOverPanel;
     public GameObject StartGamePanel;
     public GameObject PauseGamePanel;
     public GameObject HelpPanel;
+    public GameObject GameOverPanel;
 
-    private List<GameObject> AllGamePanels;
+    public List<GameObject> AllFullScreenPanels;
 
     private UIPanelSequentiable myUIPS;
+
+    public HealthBar HealthBar;
+
 
 
 
@@ -25,35 +28,47 @@ public class UIController : MonoSingleton<UIController>
     //TECHNICAL
 
     // Start is called before the first frame update
-    public void Awake()
+    public void Start()
     {
-        AllGamePanels = new List<GameObject> { GameOverPanel, StartGamePanel, PauseGamePanel, HelpPanel };
-
+        /*
+         * CARRIED OVER FROM BREAKOUT
+         * 
         //START UI Sequentiable Panel
         UIPanelSequentiable startUIPS = new UIPanelSequentiable(StartGamePanel);
         startUIPS.TakeOver(null);
 
         //DEFAULTING TO START
         myUIPS = startUIPS;
+        */
+
     }
+
+
+
+
+
 
 
 
     //FUNCTIONALITIES
 
     //text updates
-    public void UpdateScoreText(int _value) => ScoreText.text = _value.ToString();
-    public void UpdateLives(int _value) => LifeCount.text = _value.ToString();
+    public void UpdateScoreText(int _value) => ScoreText.text = "Score: " + _value.ToString();
+
+    //TODO: USE EVENT-ORIENTED PROGRAMMING TO NOTIFY LIFE COUNT CHANGES?
+    public void UpdateLives(int _value) => LifeCount.text = "Lives: " + _value.ToString();
 
 
+
+    //TODO: HANDLE GUI PANELS IN A DEDICATED HELPER?
     //GUI PANELS MANAGEMENT
 
     //HIDE ALL
-    public void HideAllUI()
+    public void HideAllFullScreenPanels()
     {
-        foreach (GameObject go in AllGamePanels)
+        foreach (GameObject go in AllFullScreenPanels)
         {
-            go.SetActive(false);
+            if(go != null) go.SetActive(false);
         }
     }
 

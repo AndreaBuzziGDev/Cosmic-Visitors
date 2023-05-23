@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
+public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
     private static T instance;
     public static T Instance { get { return instance; } }
@@ -10,12 +10,14 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Debug.LogError("Instance of this singleton " + (T)this + " already exists, deleting!");
+            Destroy(gameObject);
         }
         else
         {
+            Debug.Log("Instance of this singleton is this! " + (T)this);
             DontDestroyOnLoad(gameObject);
             instance = (T)this;
         }

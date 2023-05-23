@@ -5,13 +5,17 @@ using UnityEngine;
 public class GameController : MonoSingleton<GameController>
 {
     //DATA
-    public int Score = 0;
+    private int Score = 0;
+    private int CurrentLevel = 1;
 
-    private int Lives;//TODO: GETTER ETC
+    private int lives;
+    public int Lives { get { return lives; } }
+
     public const int StartingLives = 3;
 
     //TECHNICAL
-    public Spaceship PlayerShip;//TODO: GETTER ETC
+    //TODO: USE SERIALIZATION?
+    public SpaceshipPlayer SpaceshipPlayerPrefab;
 
 
     //METHODS
@@ -19,15 +23,16 @@ public class GameController : MonoSingleton<GameController>
     //TECHNICAL
     public void Start()
     {
-        //TODO: IMPLEMENT BASIC CONTROLS OVER TIME AND GAME STATE
-        GameStateController.Instance.ResetGame();
-        UIController.Instance.ShowStartGame();//RE-SHOW AFTER TURNING OFF ALL UIs
-
+        GameStateController.Instance.setState(GameStateController.eGameState.Start);
     }
 
-
-
     //SCORE
+    public void ResetScore()
+    {
+        Score = 0;
+        UIController.Instance.UpdateScoreText(Score);
+    }
+
     public void AddScore(int _value)
     {
         Score += _value;
@@ -35,27 +40,94 @@ public class GameController : MonoSingleton<GameController>
     }
 
 
+    //LEVEL
+    public void ResetLevel()
+    {
+        CurrentLevel = 0;
+        //TODO: UPDATE UI CORRECTLY
+        //UIController.Instance.UpdateScoreText(Score);
+    }
+
+    public void AddLevel(int _levels)
+    {
+        CurrentLevel += _levels;
+        //TODO: UPDATE UI CORRECTLY
+        //UIController.Instance.UpdateScoreText(Score);
+    }
+
+
 
     //LIVES
-    public void ResetLives() => Lives = StartingLives;
+    public void ResetLives() 
+    {
+        lives = StartingLives;
+        UIController.Instance.UpdateLives(lives);
+    }
 
+
+
+
+    //HANDLE PLAYER DEATH
     public void LifeLoss()
     {
-        if (Lives > 0)
+        if (lives > 0)
         {
-            //TODO: IMPLEMENT RESETTING ETC
-
             //
-            Lives--;
+            lives--;
 
             //TODO: USE EVENT-ORIENTED PROGRAMMING
-            UIController.Instance.UpdateLives(Lives);
+            UIController.Instance.UpdateLives(lives);
+
+            //TODO: INTRODUCE "RESPAWNING" GAME STATE?
+
+            //RE-INSTANCIATE PLAYER SHIP
+            ResetPlayer();
+
         } 
         else
         {
             //GAME OVER
-            GameStateController.Instance.GameOver();
+            GameStateController.Instance.setState(GameStateController.eGameState.GameOver);
         }
     }
+
+    //PLAYER SHIP
+    private void ResetPlayer()
+    {
+        //DESTROY PLAYER SHIP(s)
+        SpaceshipPlayer[] foundPlayerShips = FindObjectsOfType<SpaceshipPlayer>();
+        if (foundPlayerShips.Length > 0)
+        {
+            foreach (SpaceshipPlayer foundPlayerShip in foundPlayerShips) Destroy(foundPlayerShip.gameObject);
+        }
+
+        //CREATE NEW PLAYER SHIP
+        SpaceshipPlayer newShip = GameObject.Instantiate(SpaceshipPlayerPrefab, Vector3.zero, Quaternion.identity, null);
+        UIController.Instance.HealthBar.UpdateHealthBar(newShip);
+    }
+
+
+
+
+    //RESET GAME
+    public void HandleGameReset()
+    {
+        //RESET LIVES
+        ResetLives();
+
+        //RESET SCORE
+        ResetScore();
+
+        //RESET LEVEL
+        ResetLevel();
+
+        //RESET PLAYER SHIP
+        ResetPlayer();
+
+        //TODO: RESET more?
+
+    }
+
+
 
 }

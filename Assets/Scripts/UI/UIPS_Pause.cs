@@ -8,12 +8,11 @@ public class UIPS_Pause : UIPanelSequentiable
     public UIPS_Pause(GameObject currentPanel) : base(currentPanel) { }
 
 
-    //TODO: FIX
 
     //TAKE OVER LOGIC: PAUSE
-    protected override void TakeOverLogic() => GameStateController.Instance.PauseGame();
+    protected override void TakeOverLogic() => GameStateController.Instance.setState(GameStateController.eGameState.Paused);
 
     //GO BACK LOGIC: UNPAUSE
-    protected override void GoBackLogic() => GameStateController.Instance.UnpauseGame();
+    protected override void GoBackLogic() => GameStateController.Instance.setState(GameStateController.eGameState.Playing);
 
 }

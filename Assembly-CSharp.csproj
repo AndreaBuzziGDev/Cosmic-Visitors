@@ -56,15 +56,58 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\UIPS_Pause.cs" />
-    <Compile Include="Assets\Scripts\Main Controllers\UIController.cs" />
-    <Compile Include="Assets\Scripts\UIPanelSequentiable.cs" />
+    <Compile Include="Assets\Scripts\Visitor Random Generation\VisitorGenerator.cs" />
+    <Compile Include="Assets\Scripts\UI\UIPS_Pause.cs" />
+    <Compile Include="Assets\Scripts\Other\LateralBorder.cs" />
+    <Compile Include="Assets\Scripts\Visitor Random Generation\RGSimple.cs" />
     <Compile Include="Assets\Scripts\Spaceship.cs" />
+    <Compile Include="Assets\Scripts\Scene Art\SelfMovingBackgroundObject.cs" />
+    <Compile Include="Assets\Scripts\Main Controllers\AudioController.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Visitor Random Generation\VisitorColumn.cs" />
+    <Compile Include="Assets\Scripts\ISelfMoving.cs" />
+    <Compile Include="Assets\Scripts\UI\UIController.cs" />
+    <Compile Include="Assets\Scripts\IDamageable.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\ProjectileSO.cs" />
+    <Compile Include="Assets\Scripts\MonoSelfMoving.cs" />
+    <Compile Include="Assets\Scripts\UI\UIPanelSequentiable.cs" />
+    <Compile Include="Assets\Scripts\Debug\CollisionDebugScript.cs" />
+    <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Scene Art\SMBObjectSO.cs" />
+    <Compile Include="Assets\Input\PlayerInput.cs" />
+    <Compile Include="Assets\Scripts\SpaceshipPlayer.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\GameStateController.cs" />
-    <Compile Include="Assets\Scripts\Visitor.cs" />
+    <Compile Include="Assets\Scripts\ICanDamagePlayer.cs" />
+    <Compile Include="Assets\Scripts\Visitor Random Generation\RandomGenerator.cs" />
+    <Compile Include="Assets\Scripts\SpaceshipVisitor.cs" />
     <Compile Include="Assets\Scripts\Main Patterns\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\GameController.cs" />
-    <Compile Include="Assets\Input\PlayerInput.cs" />
+    <Compile Include="Assets\Scripts\Scene Art\StardustController.cs" />
+    <Compile Include="Assets\Scripts\Main Controllers\GameStateControllerHelper.cs" />
+    <Compile Include="Assets\Scripts\UI\GameOverPanel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

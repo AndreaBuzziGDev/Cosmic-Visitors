@@ -66,7 +66,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""X Axis AD"",
+                    ""name"": ""Y Axis AD"",
                     ""id"": ""777522da-9ab5-4fb6-b70a-23ee68f14607"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -79,7 +79,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Negative"",
                     ""id"": ""2ec03b86-fc3c-42a9-a7de-6108a846a829"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -90,7 +90,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Positive"",
                     ""id"": ""2978fc48-b7a0-4fde-ae54-3699d507b3e0"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -112,7 +112,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""3d67b87b-fa5e-4c24-b098-fa7f4e4b3fb4"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -123,7 +123,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""2b375e26-7aaa-46a1-a042-a2c353f40bca"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -145,7 +145,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Negative"",
                     ""id"": ""aae670b5-852e-4a71-a188-5e39df0e37e1"",
-                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""path"": ""<XInputController>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -156,7 +156,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Positive"",
                     ""id"": ""54c87b7c-53dc-458c-8dbb-5318593b3e26"",
-                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""path"": ""<XInputController>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
