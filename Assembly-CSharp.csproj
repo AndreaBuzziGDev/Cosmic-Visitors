@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Spaceship.cs" />
     <Compile Include="Assets\Scripts\Scene Art\SelfMovingBackgroundObject.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\AudioController.cs" />
+    <Compile Include="Assets\Scripts\Main Controllers\GameStateControllerHelper.cs" />
     <Compile Include="Assets\Scripts\Projectiles\Projectile.cs" />
     <Compile Include="Assets\Scripts\Visitor Random Generation\VisitorColumn.cs" />
     <Compile Include="Assets\Scripts\ISelfMoving.cs" />
@@ -80,11 +81,11 @@
     <Compile Include="Assets\Scripts\ICanDamagePlayer.cs" />
     <Compile Include="Assets\Scripts\Visitor Random Generation\RandomGenerator.cs" />
     <Compile Include="Assets\Scripts\SpaceshipVisitor.cs" />
+    <Compile Include="Assets\Scripts\Scene Art\StardustController.cs" />
     <Compile Include="Assets\Scripts\Main Patterns\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\GameController.cs" />
-    <Compile Include="Assets\Scripts\Scene Art\StardustController.cs" />
-    <Compile Include="Assets\Scripts\Main Controllers\GameStateControllerHelper.cs" />
-    <Compile Include="Assets\Scripts\UI\GameOverPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\PanelsGUI.cs" />
+    <Compile Include="Assets\Scripts\UI\PanelRespawn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

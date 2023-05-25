@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class GameStateController : MonoSingleton<GameStateController>
 {
-    //TODO: USE ENUMS TO ADDRESS GAME STATES?
-    //STATES
-    //TODO: UN-STATIFY
-    public static bool IsPlaying { get; private set; }//UNUSED
-
     //ENUMS
+    //STATES
+    //TODO: INTRODUCE STATE THAT DRIVES BACK TO MAIN MENU (Exiting)
     public enum eGameState
     {
         Start,
         Playing,
+        Respawning,
         Paused,
         GameOver,
         Quitting
     }
 
     //DATA
-    private eGameState gameState = eGameState.Start;
+    [SerializeField] private eGameState gameState = eGameState.Start;
     public bool IsPaused { get { return this.gameState == eGameState.Paused; } }
+
+    public bool IsPlaying { get { return this.gameState == eGameState.Playing || this.gameState == eGameState.Respawning; } }
+
+    public bool IsRespawning { get { return this.gameState == eGameState.Respawning; } }
+
 
 
 
@@ -31,15 +34,12 @@ public class GameStateController : MonoSingleton<GameStateController>
     //METHODS
 
     //TECHNICAL
-    private void Start()
-    {
-        gameState = eGameState.Start;
-    }
-
 
     //
     public void setState(eGameState targetState)
     {
+        Debug.Log("Target Game State: " + targetState);
+
         gameState = targetState;
         switch (gameState)
         {
@@ -49,19 +49,22 @@ public class GameStateController : MonoSingleton<GameStateController>
 
             case eGameState.Playing:
                 GameStateControllerHelper.UnpauseGame();
-                //TODO: HANDLE ADDITIONAL PLAYING THINGS (Disable Pause Menus)
+                UIController.Instance.HideAllFullScreenPanels();
+                break;
 
+            case eGameState.Respawning:
+                GameStateControllerHelper.HandleRespawning();
                 break;
 
             case eGameState.Paused:
                 GameStateControllerHelper.PauseGame();
-                //TODO: HANDLE ADDITIONAL PAUSED THINGS (Pause Menu)
+                UIController.Instance.ShowPause();
 
                 break;
 
             case eGameState.GameOver:
-                //TODO: DECIDE WHAT HAPPENS WHEN THE GAME IS OVER
                 UIController.Instance.ShowGameOver();
+                //TODO: DECIDE WHAT HAPPENS WHEN THE GAME IS OVER
 
                 break;
             case eGameState.Quitting:

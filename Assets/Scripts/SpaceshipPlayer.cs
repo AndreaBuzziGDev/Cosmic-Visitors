@@ -22,6 +22,8 @@ public class SpaceshipPlayer : Spaceship
     public GameObject BulletPrefab;//TODO: REFECTOR TO ENFORCE MAINCANNONBULLET
     public GameObject RocketPrefab;//TODO: IMPLEMENT
 
+    //ONHIT DATA
+
 
 
 
@@ -33,12 +35,24 @@ public class SpaceshipPlayer : Spaceship
     //METHODS
 
     //TECHNICAL
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Input = new PlayerInput();
         rb2D = this.gameObject.GetComponent<Rigidbody2D>();
         transform.position = InitialPosition;
+        UpdateHealthBar();
     }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (!GameStateController.Instance.IsPaused)
+        {
+            Move(new Vector2(0, MovementInputFactor));
+        }
+    }
+
 
 
 
@@ -116,6 +130,9 @@ public class SpaceshipPlayer : Spaceship
         }
     }
 
+    //SHIELD, BARRIER, EVASION 
+    //TODO: IMPLEMENT
+
 
 
     //ESCAPE
@@ -125,25 +142,6 @@ public class SpaceshipPlayer : Spaceship
     }
 
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!GameStateController.Instance.IsPaused)
-        {
-            Move(new Vector2(0, MovementInputFactor));
-        }
-        else
-        {
-            //TODO: THERE WILL BE ANOTHER CUSTOM INPUT FOR MENUS USED IN THE APPROPRIATE CLASSES
-
-            //TODO: THIS IS MENU CONTROL MODE
-            //STEP 1: FIND ACTIVE MENU (TOP LEVEL UIPanelSequentiable)
-            //STEP 2: FIND IF IT IS A MENU THAT CONTAINS AN ADDRESSABLE UI COMPONENT
-            //STEP 3: IF CURSOR HAS NOT BEEN MOVED YET, PLACE IT ON THE "HIGHEST" UI ELEMENT'S POSITION
-            //STEP 4: BASED ON INPUT, CYCLE MOVEMENT
-        }
-    }
 
 
 

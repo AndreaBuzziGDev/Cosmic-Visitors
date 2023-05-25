@@ -146,8 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd12a8d8ca5d46642b34c9a5168764ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 10
+  maxHealthPoints: 5
   currentHealthPoints: 0
+  damageCooldownMax: 1
+  damagedState: 1
   scoreDestroy: 0
   OnHitAudio: {fileID: 8300000, guid: 5d1726ad56ecf174a8670086825d9142, type: 3}
   OnKillAudio: {fileID: 8300000, guid: 5ddd67f370c3009468ef93cf23fb65db, type: 3}

@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class Spaceship : MonoBehaviour, IDamageable
 {
     //DATA
+    //TODO: LOTS OF SPACESHIP-DEFINING DATA SHOULD PROBABLY FIT INSIDE A SCRIPTABLE OBJECTS INSTEAD
+
     //HEALTH
     [SerializeField] 
     protected int maxHealthPoints = 1;
@@ -13,6 +15,18 @@ public abstract class Spaceship : MonoBehaviour, IDamageable
     [SerializeField]
     protected int currentHealthPoints;
     public int CurrentHealthPoints { get { return currentHealthPoints; } }
+
+
+    //DAMAGE COOLDOWN
+    [SerializeField]
+    protected float damageCooldownMax = 0.0f;//THIS HANDLES FOR HOW LONG THE OBJECT IS IMMUNE AFTER BEING HIT
+
+    //TODO: CHECK IF IT MAKES SENSE TO MAKE PRIVATE
+    [SerializeField]
+    protected float damageCooldown = 0.0f;
+
+    public bool IsInDamageCooldown { get { return damageCooldown > 0.0f; } }
+
 
 
     //SCORING
@@ -34,24 +48,44 @@ public abstract class Spaceship : MonoBehaviour, IDamageable
     //METHODS
 
     //TECHNICAL
-    void Start()
+    protected virtual void Awake()
     {
         currentHealthPoints = maxHealthPoints;
     }
+
+    protected virtual void Update()
+    {
+        if (damageCooldown >= 0.0f)
+        {
+            damageCooldown -= Time.deltaTime;
+        }
+    }
+
+
+
 
 
     //IMPLEMENT IDamageable
     public void ReceiveDamage(int damage)
     {
-        //TODO: ARMOR? ARMOR CLASSES?
-        currentHealthPoints -= damage;
-        if (currentHealthPoints <= 0)
+        //HANDLE IMMUNITY TO DAMAGE
+        if (!IsInDamageCooldown)
         {
-            HandleZeroHP();
-        }
-        else
-        {
-            HandleDamageReceived();
+            //RESET DAMAGE COOLDOWN
+            damageCooldown = damageCooldownMax;
+
+            //HANDLE HEALTH POINTS
+            //TODO: ARMOR? ARMOR CLASSES?
+
+            currentHealthPoints -= damage;
+            if (currentHealthPoints > 0)
+            {
+                HandleDamageReceived();
+            }
+            else
+            {
+                HandleZeroHP();
+            }
         }
     }
 

@@ -36,26 +36,27 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
     //TECHNICAL
 
     // Start is called before the first frame update
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         BulletTimer += Random.Range(0, BulletTimerRandomizer);
         SetStartVelocity();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         Move();
-
-        //TODO: IMPLEMENT VISITOR SHOOTING
-        //TODO: DON'T SHOOT BEYOND A CERTAIN POINT IN SPACE?
-        BulletTimer -= Time.deltaTime;
-        if(BulletTimer <= 0)
+        if (GameStateController.Instance.IsPlaying)
         {
-            BulletTimer = BulletCooldown + Random.Range(0, BulletTimerRandomizer /2);
-            Shoot();
+            HandleShooting();
         }
+
     }
+
+    //
+
 
 
     //IMPLEMENTING ISelfMoving
@@ -70,6 +71,7 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
 
 
     //COLLISIONS
+    //TODO: IMPROVE COLLISION MANAGEMENT. IT SHOULD BE HANDLED AT THE SPACESHIP LEVEL INSTEAD.
     private void OnTriggerEnter2D(Collider2D other)
     {
         SpaceshipPlayer target = other.gameObject.GetComponent<SpaceshipPlayer>();
@@ -93,6 +95,17 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
 
 
     //SHOOTING
+    public void HandleShooting()
+    {
+        BulletTimer -= Time.deltaTime;
+        if (BulletTimer <= 0)
+        {
+            BulletTimer = BulletCooldown + Random.Range(0, BulletTimerRandomizer / 2);
+            Shoot();
+        }
+    }
+
+
     public void Shoot()
     {
         //TODO: IMPLEMENT LOGIC. NO SHOOTING IF A NON-PLAYER ENTITY IS IN FRONT OF THIS VISITOR ?

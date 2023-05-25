@@ -5,13 +5,23 @@ using UnityEngine;
 public class GameController : MonoSingleton<GameController>
 {
     //DATA
+    //SCORE & LEVEL
     private int Score = 0;
     private int CurrentLevel = 1;
 
+    //LIVES
     private int lives;
     public int Lives { get { return lives; } }
 
-    public const int StartingLives = 3;
+    [SerializeField] private int startingLives = 3;
+    public int StartingLives { get { return startingLives; } }
+
+
+    //RESPAWN TIMER
+    [SerializeField] private float respawnMaxTimer = 3.0f;
+    public float RespawnMaxTimer { get { return respawnMaxTimer; } }
+
+
 
     //TECHNICAL
     //TODO: USE SERIALIZATION?
@@ -78,11 +88,8 @@ public class GameController : MonoSingleton<GameController>
             //TODO: USE EVENT-ORIENTED PROGRAMMING
             UIController.Instance.UpdateLives(lives);
 
-            //TODO: INTRODUCE "RESPAWNING" GAME STATE?
-
-            //RE-INSTANCIATE PLAYER SHIP
-            ResetPlayer();
-
+            //RESPAWNING
+            GameStateController.Instance.setState(GameStateController.eGameState.Respawning);
         } 
         else
         {
@@ -92,7 +99,7 @@ public class GameController : MonoSingleton<GameController>
     }
 
     //PLAYER SHIP
-    private void ResetPlayer()
+    public void ResetPlayer()
     {
         //DESTROY PLAYER SHIP(s)
         SpaceshipPlayer[] foundPlayerShips = FindObjectsOfType<SpaceshipPlayer>();

@@ -56,6 +56,7 @@ public class Projectile : MonoSelfMoving
         }
     }
 
+    //TODO: PROJECTILES HAVE POTENCY TIERS. A POTENCY TIER DESTROYS PROJECTILES OF THE SAME AND LOWER POTENCY TIER
     protected virtual void HandleCollisionLogicProjectile(Collider2D other)
     {
         if (ProjectileScriptableObject.HitsOtherProjectiles)
