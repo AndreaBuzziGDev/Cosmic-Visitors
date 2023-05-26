@@ -4,51 +4,31 @@ using UnityEngine;
 
 public class StardustController : MonoSingleton<StardustController>
 {
-    //ENUMS
-    //TODO: MOVE SOMEWHERE ELSE
-    public enum eGamePhase
-    {
-        Playing,
-        Leveling,
-        None
-    }
-
     //DATA
-    public eGamePhase phase = eGamePhase.None;
-
     //PARTICLE EFFECT REFERENCES
-    public GameObject StardustPlayingPE;
-    public GameObject StardustLeveingPE;
+    public GameObject PlayingPE;
+    public GameObject LevelingPE;
 
 
     //METHODS
 
     //TECHNICAL
-    void Start()
-    {
-        setPhase(eGamePhase.None);
-    }
-
-
-    //FUNCTIONALITIES
-    public void setPhase(eGamePhase targetPhase)
+    void Update()
     {
 
-        StardustPlayingPE.gameObject.SetActive(false);
-        StardustLeveingPE.gameObject.SetActive(false);
-        phase = targetPhase;
-
-        switch (phase)
+        /*
+        PlayingPE.gameObject.SetActive(false);
+        LevelingPE.gameObject.SetActive(false);
+        */
+        if (GameStateController.Instance.IsLeveling)
         {
-            case eGamePhase.Playing:
-                StardustPlayingPE.gameObject.SetActive(true);
-                break;
-            case eGamePhase.Leveling:
-                StardustLeveingPE.gameObject.SetActive(true);
-                break;
-            case eGamePhase.None:
-                //NOTHING
-                break;
+            PlayingPE.gameObject.SetActive(false);
+            LevelingPE.gameObject.SetActive(true);
+        }
+        else if (GameStateController.Instance.IsPlaying)
+        {
+            PlayingPE.gameObject.SetActive(true);
+            LevelingPE.gameObject.SetActive(false);
         }
     }
 

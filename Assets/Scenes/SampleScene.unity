@@ -691,9 +691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ac9726eb527f245a7882cce82e3752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase: 2
-  StardustPlayingPE: {fileID: 429675311}
-  StardustLeveingPE: {fileID: 229601307}
+  PlayingPE: {fileID: 429675311}
+  LevelingPE: {fileID: 229601307}
 --- !u!1 &227586438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,7 +1766,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 3
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5935,6 +5934,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3180575101286688338, guid: 6f31117122f295040be6ba857b660ba5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180575101286688338, guid: 6f31117122f295040be6ba857b660ba5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180575101286688338, guid: 6f31117122f295040be6ba857b660ba5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180575101286688343, guid: 6f31117122f295040be6ba857b660ba5, type: 3}
+      propertyPath: m_Mass
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180575101286688343, guid: 6f31117122f295040be6ba857b660ba5, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f31117122f295040be6ba857b660ba5, type: 3}
 --- !u!1 &350395162
@@ -7097,7 +7116,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.22
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -12304,6 +12323,7 @@ GameObject:
   - component: {fileID: 703283296}
   - component: {fileID: 703283299}
   - component: {fileID: 703283297}
+  - component: {fileID: 703283301}
   - component: {fileID: 703283300}
   m_Layer: 0
   m_Name: TopBorder
@@ -12417,6 +12437,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7abb6b8cc139374999ff04bdf09c249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &703283301
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703283295}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &708599162
 GameObject:
   m_ObjectHideFlags: 0
@@ -12694,6 +12735,8 @@ GameObject:
   - component: {fileID: 932054706}
   - component: {fileID: 932054709}
   - component: {fileID: 932054707}
+  - component: {fileID: 932054711}
+  - component: {fileID: 932054710}
   m_Layer: 0
   m_Name: BottomBorder
   m_TagString: Untagged
@@ -12794,6 +12837,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &932054710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932054705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7abb6b8cc139374999ff04bdf09c249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &932054711
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932054705}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &936952068
 GameObject:
   m_ObjectHideFlags: 0

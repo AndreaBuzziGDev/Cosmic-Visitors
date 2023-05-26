@@ -13,6 +13,7 @@ public class GameStateController : MonoSingleton<GameStateController>
         Playing,
         Respawning,
         Paused,
+        Leveling,
         GameOver,
         Quitting
     }
@@ -24,6 +25,8 @@ public class GameStateController : MonoSingleton<GameStateController>
     public bool IsPlaying { get { return this.gameState == eGameState.Playing || this.gameState == eGameState.Respawning; } }
 
     public bool IsRespawning { get { return this.gameState == eGameState.Respawning; } }
+
+    public bool IsLeveling { get { return this.gameState == eGameState.Leveling; } }
 
 
 

@@ -17,14 +17,14 @@ public abstract class Spaceship : MonoBehaviour, IDamageable
     public int CurrentHealthPoints { get { return currentHealthPoints; } }
 
 
-    //DAMAGE COOLDOWN
-    [SerializeField]
-    protected float damageCooldownMax = 0.0f;//THIS HANDLES FOR HOW LONG THE OBJECT IS IMMUNE AFTER BEING HIT
+    //DAMAGE HANDLING
+    //TODO: SCRIPTABLE OBJECTS SHOULD HANDLE THE GENERAL GIST OF THIS PORTION OF CODE
+    [SerializeField] protected Color regularColor = Color.white;
+    [SerializeField] protected Color damagedColor = new Color(1,1,1,0);
+    protected bool IsFlickeredDamage = false;
 
-    //TODO: CHECK IF IT MAKES SENSE TO MAKE PRIVATE
-    [SerializeField]
-    protected float damageCooldown = 0.0f;
-
+    [SerializeField] protected float damageCooldownMax = 0.1f;//THIS HANDLES FOR HOW LONG THE OBJECT IS IMMUNE AFTER BEING HIT
+    [SerializeField] protected float damageCooldown = 0.0f;
     public bool IsInDamageCooldown { get { return damageCooldown > 0.0f; } }
 
 
@@ -51,16 +51,39 @@ public abstract class Spaceship : MonoBehaviour, IDamageable
     protected virtual void Awake()
     {
         currentHealthPoints = maxHealthPoints;
+        this.gameObject.GetComponent<SpriteRenderer>().color = regularColor;
     }
 
     protected virtual void Update()
     {
-        if (damageCooldown >= 0.0f)
-        {
-            damageCooldown -= Time.deltaTime;
-        }
+        HandleDamagedLifetime();
     }
 
+
+
+    //FUNCTIONALITIES
+    //HANDLE LIFETIME OF STATE: "DAMAGED"
+    protected void HandleDamagedLifetime()
+    {
+        if (IsInDamageCooldown)
+        {
+            damageCooldown -= Time.deltaTime;
+            if (IsFlickeredDamage)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().color = regularColor;
+            }
+            else
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().color = damagedColor;
+            }
+            IsFlickeredDamage = !IsFlickeredDamage;
+        }
+        else
+        {
+            //RETURN TO NORMAL WHEN DAMAGE COOLDOWN IS OVER
+            this.gameObject.GetComponent<SpriteRenderer>().color = regularColor;
+        }
+    }
 
 
 

@@ -150,6 +150,7 @@ public class SpaceshipPlayer : Spaceship
     public void Move(Vector2 direction)
     {
         rb2D.velocity = (direction) * MoveSpeed;
+        //rb2D.AddForce(direction * MoveSpeed);
     }
 
 
