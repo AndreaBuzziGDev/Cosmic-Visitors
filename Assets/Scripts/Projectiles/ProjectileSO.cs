@@ -3,32 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="ProjectileScriptableObject", menuName ="ScriptableObjects/Projectile")]
-public class ProjectileSO : SMBObjectSO //, ISelfMoving
+public class ProjectileSO : SMBObjectSO
 {
-    //TODO: REFACTOR SO THIS CONTAINS MOST OF THE PROJECTILE CODE
-    //TODO: ENFORCE VERTICAL MOVEMENT TO 0? DEFINE VERTICAL MOVING BEHAVIOUR OVERRIDE?
 
     //BULLET DAMAGE PROPERTIES
     public bool HitsPlayer = false;
     public bool HitsOtherProjectiles = false;
+    public bool HitsVisitors = false;
 
-    //TODO: HITS VISITORS
 
-
-    public int BulletDamage = 1;//TODO: INTERESTING EVOLUTIONS BASED ON DAMAGE TYPES?
-
+    //DAMAGE (& TYPES)
+    public int BulletDamage = 1;
+    public int PotencyTier = 1;
+    public bool Penetrates = false;
 
     //AUDIO
     public AudioClip OnShotAudio;
     public AudioClip OnTargetHitAudio;
 
-
     //PARTICLES
     public ParticleSystem OnDestroyParticle;
-
-
-
-    //TODO: REFACTOR TAKING INSPIRATION FROM THE "ADVENTUREGAME FIXES"
-
 
 }

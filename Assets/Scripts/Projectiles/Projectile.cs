@@ -7,6 +7,7 @@ public class Projectile : MonoSelfMoving
     //DATA
     private ProjectileSO ProjectileScriptableObject;
 
+
     //METHODS
 
     //TECHNICAL
@@ -39,6 +40,8 @@ public class Projectile : MonoSelfMoving
         ProjectileScriptableObject = mySMBObjectSO as ProjectileSO;
         Destroy(this.gameObject, ProjectileScriptableObject.MaxLifeTime);//DELAYED DESTRUCTION (MAX BULLET LIFETIME)
         AudioController.Instance.PlayClip(ProjectileScriptableObject.OnShotAudio);
+
+        //BASE
         base.StartRoutine();
     }
 
@@ -61,17 +64,15 @@ public class Projectile : MonoSelfMoving
         if (iDamageableTarget != null)
         {
             SpaceshipPlayer hasPlayer = other.gameObject.GetComponent<SpaceshipPlayer>();
-            if (hasPlayer == null || ProjectileScriptableObject.HitsPlayer)
+            if ((hasPlayer == null && ProjectileScriptableObject.HitsVisitors) || ProjectileScriptableObject.HitsPlayer)
             {
                 InflictDamage(iDamageableTarget);
-
-                //TODO: DESTROY, UNLESS IT'S A PENETRATING BULLET...
-                Destroy(this.gameObject);
+                if (!ProjectileScriptableObject.Penetrates) Destroy(this.gameObject);
             }
         }
     }
 
-    //TODO: PROJECTILES HAVE POTENCY TIERS. A POTENCY TIER DESTROYS PROJECTILES OF THE SAME AND LOWER POTENCY TIER
+    //TODO: MAKE PROJECTILES IDamageable?
     protected virtual void HandleCollisionLogicProjectile(Collider2D other)
     {
         if (ProjectileScriptableObject.HitsOtherProjectiles)
@@ -79,8 +80,16 @@ public class Projectile : MonoSelfMoving
             Projectile otherProjectile = other.gameObject.GetComponent<Projectile>();
             if (otherProjectile != null)
             {
-                Destroy(other.gameObject);
-                Destroy(this.gameObject);
+                //POTENCY TIER CHECK
+                if (ProjectileScriptableObject.PotencyTier > otherProjectile.ProjectileScriptableObject.PotencyTier)
+                {
+                    Destroy(other.gameObject);
+                }
+                //DESTROY THIS PROJECTILE ON HIT UNLESS IT PENETRATES
+                else if (!ProjectileScriptableObject.Penetrates)
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
