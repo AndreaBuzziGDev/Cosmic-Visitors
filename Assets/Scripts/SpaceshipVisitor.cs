@@ -48,7 +48,7 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
     {
         base.Update();
         Move();
-        if (GameStateController.Instance.IsPlaying)
+        if (GameStateController.Instance.IsPlaying && !GameStateController.Instance.IsRespawning)
         {
             HandleShooting();
         }

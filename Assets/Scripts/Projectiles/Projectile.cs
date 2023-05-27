@@ -15,6 +15,19 @@ public class Projectile : MonoSelfMoving
         StartRoutine();
     }
 
+    //TODO: PROJECTILE SHOULD PROBABLY HAVE ITS SOUND PLAYED ON ONENABLE.
+
+    private void OnDestroy()
+    {
+        //DESTROY PARTICLES
+        if (ProjectileScriptableObject.OnDestroyParticle != null)
+        {
+            GameObject.Instantiate(ProjectileScriptableObject.OnDestroyParticle, this.transform.position, Quaternion.identity, null);
+        }
+    }
+
+
+
 
 
     //START ROUTINE

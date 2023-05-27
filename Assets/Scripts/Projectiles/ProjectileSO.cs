@@ -11,12 +11,20 @@ public class ProjectileSO : SMBObjectSO //, ISelfMoving
     //BULLET DAMAGE PROPERTIES
     public bool HitsPlayer = false;
     public bool HitsOtherProjectiles = false;
+
+    //TODO: HITS VISITORS
+
+
     public int BulletDamage = 1;//TODO: INTERESTING EVOLUTIONS BASED ON DAMAGE TYPES?
 
 
     //AUDIO
     public AudioClip OnShotAudio;
     public AudioClip OnTargetHitAudio;
+
+
+    //PARTICLES
+    public ParticleSystem OnDestroyParticle;
 
 
 
