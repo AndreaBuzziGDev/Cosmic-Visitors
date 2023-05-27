@@ -15,7 +15,6 @@ public class Projectile : MonoSelfMoving
         StartRoutine();
     }
 
-    //TODO: PROJECTILE SHOULD PROBABLY HAVE ITS SOUND PLAYED ON ONENABLE.
 
     private void OnDestroy()
     {
@@ -24,6 +23,10 @@ public class Projectile : MonoSelfMoving
         {
             GameObject.Instantiate(ProjectileScriptableObject.OnDestroyParticle, this.transform.position, Quaternion.identity, null);
         }
+
+        //DESTROY SOUND
+        AudioController.Instance.PlayClip(ProjectileScriptableObject.OnTargetHitAudio);
+
     }
 
 
@@ -61,7 +64,6 @@ public class Projectile : MonoSelfMoving
             if (hasPlayer == null || ProjectileScriptableObject.HitsPlayer)
             {
                 InflictDamage(iDamageableTarget);
-                AudioController.Instance.PlayClip(ProjectileScriptableObject.OnTargetHitAudio);
 
                 //TODO: DESTROY, UNLESS IT'S A PENETRATING BULLET...
                 Destroy(this.gameObject);
@@ -77,7 +79,6 @@ public class Projectile : MonoSelfMoving
             Projectile otherProjectile = other.gameObject.GetComponent<Projectile>();
             if (otherProjectile != null)
             {
-                AudioController.Instance.PlayClip(ProjectileScriptableObject.OnTargetHitAudio);
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);
             }
