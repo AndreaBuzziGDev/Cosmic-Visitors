@@ -156,7 +156,4 @@ MonoBehaviour:
   OnHitAudio: {fileID: 8300000, guid: 53e9dfd8644069f469d9ce0c6b767433, type: 3}
   OnKillAudio: {fileID: 8300000, guid: fab742953aa9cbd4a9d31b56823008e8, type: 3}
   DeathExplosionPrefab: {fileID: 8192521130203081611, guid: 2dcc3ae8cb86dc94097f84e5a0417be0, type: 3}
-  CollisionDamage: 1
-  speedModule: 3.5
-  BulletCooldown: 2
-  VisitorBulletPrefab: {fileID: 1342068892817292772, guid: f92567115061ef84da8f2629da89f66e, type: 3}
+  SpaceshipVisitorScriptableObject: {fileID: 11400000, guid: 280e9ead3b36980498e84633382e73aa, type: 2}

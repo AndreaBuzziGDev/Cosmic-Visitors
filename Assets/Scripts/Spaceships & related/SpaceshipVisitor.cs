@@ -12,22 +12,16 @@ using UnityEngine;
 public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
 {
     //DATA
-    //HEALTH & SCORING
-    public int CollisionDamage = 1;
+
+    //SCRIPTABLE OBJECTS
+    [SerializeField]
+    SpaceshipVisitorSO SpaceshipVisitorScriptableObject;
 
     //MOVEMENT
     Vector2 Velocity;
-    public float speedModule = 2.0f;//USED TO CONTROL VISITOR DESCENT SPEED
 
-    //BULLETS
-
-    //TODO: MAX AMMO?
-    //TODO: ELIGIBLE AS A SCRIPTABLEOBJECT CONTENT
-    public float BulletCooldown = 5.0f;//UNUSED
+    //BULLET TIMER
     private float BulletTimer = 1.0f;
-    private float BulletTimerRandomizer = 4.0f;//TODO: COULD BE A SERIALIZED FIELD
-    public GameObject VisitorBulletPrefab;
-
 
 
 
@@ -39,8 +33,10 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
     protected override void Awake()
     {
         base.Awake();
-        BulletTimer += Random.Range(0, BulletTimerRandomizer);
+        BulletTimer += Random.Range(0, SpaceshipVisitorScriptableObject.BulletTimerRandomizer);
         SetStartVelocity();
+
+        //TODO: SETUP RANDOMIZED CRATES
     }
 
     // Update is called once per frame
@@ -60,36 +56,30 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
 
 
     //IMPLEMENTING ISelfMoving
-    public void SetStartVelocity() => Velocity = Vector2.left * speedModule;
-
-    //
-    public void Move()
-    { 
-        transform.Translate(Velocity * Time.deltaTime);
-    }
-
+    public void SetStartVelocity() => Velocity = Vector2.left * SpaceshipVisitorScriptableObject.speedModule;
+    public void Move() => transform.Translate(Velocity * Time.deltaTime);
 
 
     //COLLISIONS
-    //TODO: IMPROVE COLLISION MANAGEMENT. IT SHOULD BE HANDLED AT THE SPACESHIP LEVEL INSTEAD.
     private void OnTriggerEnter2D(Collider2D other)
     {
         SpaceshipPlayer target = other.gameObject.GetComponent<SpaceshipPlayer>();
 
         if (target != null)
         {
-            DamagePlayer(target);
-            this.ReceiveDamage(maxHealthPoints);
+            if (SpaceshipVisitorScriptableObject.CollidesWithPlayer)
+            {
+                DamagePlayer(target);
+                this.ReceiveDamage(maxHealthPoints);
+            }
         }
 
     }
 
     //IMPLEMENTING ICanDamagePlayer
-    //TODO: REFACTOR SO THAT IT CAN RECEIVE DAMAGE BASED ON A "IDamageable"? But it might make code harder.
-    //TODO: SEE IF A BETTER IMPLEMENTATION CAN BE ACHIEVED BY USING THE SAME CODE IN Projectile CLASS
     public void DamagePlayer(SpaceshipPlayer player)
     {
-        player.ReceiveDamage(CollisionDamage);
+        player.ReceiveDamage(SpaceshipVisitorScriptableObject.CollisionDamage);
     }
 
 
@@ -97,21 +87,24 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
     //SHOOTING
     public void HandleShooting()
     {
-        BulletTimer -= Time.deltaTime;
-        if (BulletTimer <= 0)
+        if(SpaceshipVisitorScriptableObject.AmmoCount > 0)
         {
-            BulletTimer = BulletCooldown + Random.Range(0, BulletTimerRandomizer / 2);
-            Shoot();
+            BulletTimer -= Time.deltaTime;
+            if (BulletTimer <= 0)
+            {
+                //RESET BULLET: BASE COOLDOWN + RANDOMIZED DELAY
+                BulletTimer = SpaceshipVisitorScriptableObject.BulletCooldown + Random.Range(0, SpaceshipVisitorScriptableObject.BulletTimerRandomizer);
+                Shoot();
+            }
         }
     }
 
 
     public void Shoot()
     {
-        //TODO: IMPLEMENT LOGIC. NO SHOOTING IF A NON-PLAYER ENTITY IS IN FRONT OF THIS VISITOR ?
         Vector3 add = Vector2.left;
         GameObject.Instantiate(
-            VisitorBulletPrefab, 
+            SpaceshipVisitorScriptableObject.VisitorBulletPrefab, 
             this.transform.position + add, 
             Quaternion.identity, 
             null

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61a8b610ad8c11240a0a95eb486879b3, type: 3}
-  m_Name: Visitor Bullet
+  m_Name: Base Visitor Bullet
   m_EditorClassIdentifier: 
   Direction: 2
   SpeedModule: 5

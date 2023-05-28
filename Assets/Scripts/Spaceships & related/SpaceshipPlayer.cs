@@ -22,10 +22,6 @@ public class SpaceshipPlayer : Spaceship
     public GameObject BulletPrefab;//TODO: REFECTOR TO ENFORCE MAINCANNONBULLET
     public GameObject RocketPrefab;//TODO: IMPLEMENT
 
-    //ONHIT DATA
-
-
-
 
     //AUDIO
     //TODO: CUSTOM AUDIO FOR MOVEMENT?

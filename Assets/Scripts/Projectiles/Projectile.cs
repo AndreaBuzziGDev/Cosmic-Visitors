@@ -58,13 +58,14 @@ public class Projectile : MonoSelfMoving
 
     }
 
+    //COLLISION: DAMAGEABLE
     protected virtual void HandleCollisionLogicDamageable(Collider2D other)
     {
         IDamageable iDamageableTarget = other.gameObject.GetComponent<IDamageable>();
         if (iDamageableTarget != null)
         {
             SpaceshipPlayer hasPlayer = other.gameObject.GetComponent<SpaceshipPlayer>();
-            if ((hasPlayer == null && ProjectileScriptableObject.HitsVisitors) || ProjectileScriptableObject.HitsPlayer)
+            if ((hasPlayer == null && ProjectileScriptableObject.HitsVisitors) || (hasPlayer != null && ProjectileScriptableObject.HitsPlayer))
             {
                 InflictDamage(iDamageableTarget);
                 if (!ProjectileScriptableObject.Penetrates) Destroy(this.gameObject);
@@ -72,7 +73,7 @@ public class Projectile : MonoSelfMoving
         }
     }
 
-    //TODO: MAKE PROJECTILES IDamageable?
+    //COLLISION: PROJECTILES
     protected virtual void HandleCollisionLogicProjectile(Collider2D other)
     {
         if (ProjectileScriptableObject.HitsOtherProjectiles)
@@ -99,11 +100,8 @@ public class Projectile : MonoSelfMoving
 
 
     //FUNCTIONALITIES
-    //TODO: USE INTERFACE IBullet ?
-    //TODO: PLAYER SHOULD NOT BE ABLE TO HARM THEMSELVES
     public void InflictDamage(IDamageable target)
     {
-        //TODO: DEVELOP
         target.ReceiveDamage(ProjectileScriptableObject.BulletDamage);
     }
 

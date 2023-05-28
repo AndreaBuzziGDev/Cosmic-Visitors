@@ -5,20 +5,18 @@ using UnityEngine;
 public abstract class Spaceship : MonoBehaviour, IDamageable
 {
     //DATA
-    //TODO: LOTS OF SPACESHIP-DEFINING DATA SHOULD PROBABLY FIT INSIDE A SCRIPTABLE OBJECTS INSTEAD
 
     //HEALTH
     [SerializeField] 
     protected int maxHealthPoints = 1;
     public int MaxHealthPoints { get { return maxHealthPoints; } }
 
-    [SerializeField]
     protected int currentHealthPoints;
     public int CurrentHealthPoints { get { return currentHealthPoints; } }
 
 
     //DAMAGE HANDLING
-    //TODO: SCRIPTABLE OBJECTS SHOULD HANDLE THE GENERAL GIST OF THIS PORTION OF CODE
+    //TODO: SCRIPTABLE OBJECTS COULD HANDLE THE GENERAL GIST OF THIS PORTION OF CODE
     [SerializeField] protected Color regularColor = Color.white;
     [SerializeField] protected Color damagedColor = new Color(1,1,1,0);
     protected bool IsFlickeredDamage = false;
@@ -122,11 +120,13 @@ public abstract class Spaceship : MonoBehaviour, IDamageable
         //SPACESHIP DEATH
         AudioController.Instance.PlayClip(OnKillAudio);
         GameController.Instance.AddScore(scoreDestroy);
-        Destroy(this.gameObject);
 
         //DEATH PARTICLE EFFECT
         GameObject deathParticle = Instantiate(DeathExplosionPrefab, transform.position, Quaternion.identity);
         Destroy(deathParticle, 1.0f);
+
+        //DESTROY
+        Destroy(this.gameObject);
     }
 
 }

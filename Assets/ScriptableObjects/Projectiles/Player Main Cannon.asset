@@ -17,8 +17,11 @@ MonoBehaviour:
   SpeedModule: 10
   MaxLifeTime: 1.75
   HitsPlayer: 0
-  HitsOtherProjectiles: 1
+  HitsOtherProjectiles: 0
+  HitsVisitors: 1
   BulletDamage: 1
+  PotencyTier: 1
+  Penetrates: 0
   OnShotAudio: {fileID: 8300000, guid: fa3dd7f3ae2755c46bfeb5ab2c1bd961, type: 3}
   OnTargetHitAudio: {fileID: 8300000, guid: b0f6209a9449e344faa31d8fa5a9e393, type: 3}
   OnDestroyParticle: {fileID: 6423491200273716522, guid: 07f2629709c73c549a67322df269a9a3, type: 3}
