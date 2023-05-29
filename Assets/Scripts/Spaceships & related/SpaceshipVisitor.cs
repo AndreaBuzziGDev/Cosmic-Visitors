@@ -23,7 +23,8 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
     //BULLET TIMER
     private float BulletTimer = 1.0f;
 
-
+    //MIRRORING SpaceshipVisitorSO DATA FOR INSTANCE
+    public int AmmoCount;
 
 
     //METHODS
@@ -33,6 +34,9 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
     protected override void Awake()
     {
         base.Awake();
+
+        //TODO: THIS IS STILL BUGGED. FIND A SOLUTION.
+        AmmoCount = SpaceshipVisitorScriptableObject.AmmoCount;
         BulletTimer += Random.Range(0, SpaceshipVisitorScriptableObject.BulletTimerRandomizer);
         SetStartVelocity();
 
@@ -87,7 +91,7 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
     //SHOOTING
     public void HandleShooting()
     {
-        if(SpaceshipVisitorScriptableObject.AmmoCount > 0)
+        if(AmmoCount > 0)
         {
             BulletTimer -= Time.deltaTime;
             if (BulletTimer <= 0)
@@ -95,6 +99,8 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
                 //RESET BULLET: BASE COOLDOWN + RANDOMIZED DELAY
                 BulletTimer = SpaceshipVisitorScriptableObject.BulletCooldown + Random.Range(0, SpaceshipVisitorScriptableObject.BulletTimerRandomizer);
                 Shoot();
+                //TODO: THIS AFFECTS LITERALLY EVERYTHING IN THE SCENE. BEST NOT TO USE THIS AT ALL.
+                AmmoCount--;
             }
         }
     }

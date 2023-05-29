@@ -9,25 +9,35 @@ public class VisitorGenerator : MonoBehaviour
     //ENUMS
     public enum eGeneratorType
     {
-        SimpleGenerator //TODO: RENAME/REWORK
+        SimpleRandomGenerator,
+        DebugGenerator//TODO: IMPLEMENT
     }
 
     public eGeneratorType GeneratorType;
 
 
     //DATA
-    public float SpawnCooldownTimer = 2.0f;
-    private float SpawnCooldownInternal = 0.2f;
+    [SerializeField] private float SpawnCooldownMax = 2.0f;
+    public float SpawnCooldown = 0.5f;
 
+
+
+
+    //VISITOR GENERATOR
+    public bool IsDebugMode = false;//TODO: IMPLEMENT/USE
     private RandomGenerator Generator;
 
-
-
     //PREFABS
-    public GameObject SpaceshipVisitorPrefab;
+    public GameObject BaseBlueVisitorPrefab;
+    public GameObject BaseRedVisitorPrefab;
+    public GameObject FastBlueVisitorPrefab;
+    public GameObject FastRedVisitorPrefab;
 
-
-
+    //TODO: DEDICATED HIT SOUND IN PREFAB
+    //TODO: DEDICATED EXPLOSION SOUND IN PREFAB
+    //TODO: DEDICATED EXPLOSION PARTICLE EFFECT IN PREFAB
+    public GameObject MeteoritePrefab;//TODO: WILL HAVE GUARANTEED "GOOD" LOOT
+    //TODO: MORE...
 
 
     //METHODS
@@ -41,12 +51,10 @@ public class VisitorGenerator : MonoBehaviour
     //Update
     private void Update()
     {
-        //TODO: IMPLEMENT
-        SpawnCooldownInternal -= Time.deltaTime;
-        if (SpawnCooldownInternal <= 0.0f)
+        SpawnCooldown -= Time.deltaTime;
+        if (SpawnCooldown <= 0.0f)
         {
-            SpawnCooldownInternal = SpawnCooldownTimer;
-            //TODO: IT COULD GO ON FOREVER AND CAUSE PERFORMANCE ISSUES. NEEDS TO HAVE A LIFETIME IMPLEMENTED
+            SpawnCooldown = SpawnCooldownMax;
             VisitorColumn myNewColumn = new VisitorColumn(Generator.GenerateColumn());
             myNewColumn.SpawnVisitors();
         }
@@ -55,23 +63,17 @@ public class VisitorGenerator : MonoBehaviour
 
 
     //FUNCTIONALITY
-    //TODO: REFACTOR AS DICTIONARY?
     public RandomGenerator GetReferenceGenerator(eGeneratorType type)
     {
-        RandomGenerator result;
-
         switch (type)
         {
-            case eGeneratorType.SimpleGenerator:
-                result = new RGSimple();
-                break;
+            case eGeneratorType.SimpleRandomGenerator:
+                return new RGSimple();
+
             default:
-                result = new RGSimple();
-                break;
+                return new RGSimple();
+
         }
-
-        return result;
     }
-
 
 }

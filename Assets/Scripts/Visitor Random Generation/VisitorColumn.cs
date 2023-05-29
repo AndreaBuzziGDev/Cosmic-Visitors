@@ -6,10 +6,15 @@ using UnityEngine;
 public class VisitorColumn : MonoBehaviour
 {
     //ENUM
+    //TODO: DITCH. SHOULD USE A MORE SIMPLE IMPLEMENTATION. USE GAME OBJECT REFERENCES FROM THE VisitorGenerator CLASS
     public enum eSlotType
     {
         Empty,
-        Visitor
+        BaseBlueVisitor,
+        BaseRedVisitor,
+        FastBlueVisitor,
+        FastRedVisitor,
+        Meteorite
     }
 
     //DATA
@@ -29,17 +34,25 @@ public class VisitorColumn : MonoBehaviour
         new Vector3(defaultCoordinatesX, -2, 0),
         new Vector3(defaultCoordinatesX, -3, 0)
     };
+    
+    //TODO: RE-OPTIMIZE
+    //private VisitorGenerator myGen;
 
 
 
     //DICTIONARY
     public static Dictionary<char, eSlotType> CharToSlotType = new Dictionary<char, eSlotType>() {
         {'E', eSlotType.Empty},
-        {'V', eSlotType.Visitor}
+        {'B', eSlotType.BaseBlueVisitor},
+        {'R', eSlotType.BaseRedVisitor},
+        {'F', eSlotType.FastBlueVisitor},
+        {'G', eSlotType.FastRedVisitor},
+        {'M', eSlotType.Meteorite}
     };
 
 
     //CONSTRUCTOR
+    //TODO: GET RID OF CONSTRUCTOR. SHOULD NOT CONSTRUCT MONOBEHAVIOURS. USE FACTORY INSTEAD
     public VisitorColumn(string inputString)
     {
         char[] chars;
@@ -74,8 +87,6 @@ public class VisitorColumn : MonoBehaviour
         {
             chars = new char[] { 'E', 'E', 'E', 'E', 'E', 'E', 'E' };
         }
-        //TODO: CONDITIONALLY DEBUG BASED ON EDITOR/SCENE SETTINGS
-        //Debug.Log("chars: " + chars[0] + chars[1] + chars[2] + chars[3] + chars[4] + chars[5] + chars[6]);
 
         //SET _data
         for(int i = 0; i < _data.Length; i++)
@@ -87,6 +98,13 @@ public class VisitorColumn : MonoBehaviour
 
 
     //METHODS
+    public void Start()
+    {
+        //TODO: THIS WAS DISMISSED DUE TO COMPLICATIONS RELATED TO THE USAGE OF CONSTRUCTOR.
+        //myGen = FindObjectOfType<VisitorGenerator>();
+    }
+
+
     //TODO: POSSIBLE REFACTOR TO GameObject RETURN
     public void SpawnVisitors()
     {
@@ -114,23 +132,28 @@ public class VisitorColumn : MonoBehaviour
     //RETURNS THE CORRESPONDING GAME OBJECT EXPECTED BASED ON CORRESPONDING eSlotType
     public GameObject GetMappedGameObject(eSlotType type)
     {
-        GameObject result;
-        /*
-        Debug.Log("Debug type: " + type);
-        Debug.Log("Debug GameController: " + GameController.Instance);
-        */
-        VisitorGenerator myGen = FindObjectOfType<VisitorGenerator>();//TODO: FIX. PUT IN AWAKE?
+        //TODO: RE-OPTIMIZE
+        VisitorGenerator myGen = FindObjectOfType<VisitorGenerator>();
         switch (type)
         {
-            case eSlotType.Visitor:
-                result = myGen.SpaceshipVisitorPrefab;
-                break;
-            default:
-                result = null;//TODO: FIX
-                break;
-        }
+            case eSlotType.BaseBlueVisitor:
+                return myGen.BaseBlueVisitorPrefab;
 
-        return result;
+            case eSlotType.BaseRedVisitor:
+                return myGen.BaseRedVisitorPrefab;
+
+            case eSlotType.FastBlueVisitor:
+                return myGen.FastBlueVisitorPrefab;
+
+            case eSlotType.FastRedVisitor:
+                return myGen.FastRedVisitorPrefab;
+
+            case eSlotType.Meteorite:
+                return myGen.MeteoritePrefab;
+
+            default:
+                return null;
+        }
     }
 
 

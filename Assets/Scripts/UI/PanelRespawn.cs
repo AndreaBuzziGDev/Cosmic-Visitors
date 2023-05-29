@@ -7,7 +7,7 @@ public class PanelRespawn : MonoBehaviour
 
     //DATA
     //TODO: USE GAME CONTROLLER FOR THESE DATA?
-    [SerializeField] private float RespawnTimer = 3.0f;
+    [SerializeField] private float RespawnTimer = 0.0f;
 
 
     public TMPro.TextMeshProUGUI RespawningText;

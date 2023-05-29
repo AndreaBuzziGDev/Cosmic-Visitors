@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8515a7bdf311d0044ad424e31c4d56db, type: 3}
-  m_Name: Blue Visitor
+  m_Name: Blue Base Visitor
   m_EditorClassIdentifier: 
   CollidesWithPlayer: 1
   CollisionDamage: 1
-  speedModule: 2
-  BulletCooldown: 5
+  speedModule: 3
+  BulletCooldown: 2
   BulletTimerRandomizer: 2
-  VisitorBulletPrefab: {fileID: 0}
+  VisitorBulletPrefab: {fileID: 1342068892817292772, guid: f92567115061ef84da8f2629da89f66e, type: 3}
   AmmoCount: 1

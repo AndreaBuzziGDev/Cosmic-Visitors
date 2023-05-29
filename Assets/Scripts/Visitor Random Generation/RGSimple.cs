@@ -17,17 +17,18 @@ public class RGSimple : RandomGenerator
         {
             //TODO: COULD BE REFACTORED SO THAT IT COULD EASILY REFERENCIATE VisitorColumn CharToSlotType DICTIONARY
             //      HOWEVER, IT WOULD ALSO REQUIRE ANOTHER VisitorColumn CONSTRUCTOR
-            int typeNum = Random.Range(0, 2);//RETURNS 0 or 1
-            if (typeNum <1)
-            {
-                generatedString += 'E';
-            }
-            else
-            {
-                generatedString += 'V';
-            }
+            //TODO: ANOTHER REFACTOR COULD BE COUPLING IT BETTER WITH THE CONTENT OF VisitorColumn CLASS
+            int typeNum = Random.Range(0, 100);//RETURNS NUMBERS BETWEEN 0 AND 5
+            if (typeNum <1) generatedString += 'M';
+            else if (typeNum < 20) generatedString += 'E';
+            else if (typeNum < 45) generatedString += 'F';
+            else if (typeNum < 70) generatedString += 'G';
+            else if (typeNum < 85) generatedString += 'B';
+            else generatedString += 'R';
         }
-        Debug.Log("generatedString: " + generatedString);
+
+        //TODO: CONDITIONALLY DEBUG BASED ON VisitorGenerator CLASS
+        Debug.Log("RGSimple - generatedString: " + generatedString);
 
         return generatedString;
     }

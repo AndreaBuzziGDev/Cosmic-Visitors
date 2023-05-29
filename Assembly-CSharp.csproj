@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\UI\UIPS_Pause.cs" />
     <Compile Include="Assets\Scripts\Other\LateralBorder.cs" />
     <Compile Include="Assets\Scripts\Visitor Random Generation\RGSimple.cs" />
+    <Compile Include="Assets\Scripts\UI\PanelRespawn.cs" />
     <Compile Include="Assets\Scripts\Spaceships &amp; related\Spaceship.cs" />
     <Compile Include="Assets\Scripts\Scene Art\SelfMovingBackgroundObject.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\AudioController.cs" />
@@ -71,7 +72,9 @@
     <Compile Include="Assets\Scripts\IDamageable.cs" />
     <Compile Include="Assets\Scripts\Projectiles\ProjectileSO.cs" />
     <Compile Include="Assets\Scripts\MonoSelfMoving.cs" />
+    <Compile Include="Assets\Scripts\Spaceships &amp; related\Crate.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanelSequentiable.cs" />
+    <Compile Include="Assets\Scripts\Spaceships &amp; related\CrateSO.cs" />
     <Compile Include="Assets\Scripts\Debug\CollisionDebugScript.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Scene Art\SMBObjectSO.cs" />
@@ -79,16 +82,13 @@
     <Compile Include="Assets\Scripts\Spaceships &amp; related\SpaceshipPlayer.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\GameStateController.cs" />
     <Compile Include="Assets\Scripts\ICanDamagePlayer.cs" />
+    <Compile Include="Assets\Scripts\UI\PanelsGUI.cs" />
     <Compile Include="Assets\Scripts\Visitor Random Generation\RandomGenerator.cs" />
+    <Compile Include="Assets\Scripts\Spaceships &amp; related\SpaceshipVisitorSO.cs" />
     <Compile Include="Assets\Scripts\Spaceships &amp; related\SpaceshipVisitor.cs" />
     <Compile Include="Assets\Scripts\Scene Art\StardustController.cs" />
     <Compile Include="Assets\Scripts\Main Patterns\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\GameController.cs" />
-    <Compile Include="Assets\Scripts\UI\PanelsGUI.cs" />
-    <Compile Include="Assets\Scripts\UI\PanelRespawn.cs" />
-    <Compile Include="Assets\Scripts\Spaceships &amp; related\SpaceshipVisitorSO.cs" />
-    <Compile Include="Assets\Scripts\Spaceships &amp; related\Crate.cs" />
-    <Compile Include="Assets\Scripts\Spaceships &amp; related\CrateSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
