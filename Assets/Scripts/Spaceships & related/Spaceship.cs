@@ -11,7 +11,7 @@ public abstract class Spaceship : MonoBehaviour, IDamageable
     protected int maxHealthPoints = 1;
     public int MaxHealthPoints { get { return maxHealthPoints; } }
 
-    protected int currentHealthPoints;
+    [SerializeField] protected int currentHealthPoints;
     public int CurrentHealthPoints { get { return currentHealthPoints; } }
 
 

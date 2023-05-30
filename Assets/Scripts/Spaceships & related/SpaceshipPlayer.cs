@@ -259,6 +259,8 @@ public class SpaceshipPlayer : Spaceship
 
             case Crate.eCrateContentType.Health:
                 currentHealthPoints += crate.ResourceAmount;
+                if (currentHealthPoints > maxHealthPoints) currentHealthPoints = maxHealthPoints;
+                UpdateHealthBar();
                 break;
 
         }

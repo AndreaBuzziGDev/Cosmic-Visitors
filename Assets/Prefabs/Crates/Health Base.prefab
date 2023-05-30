@@ -244,3 +244,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mySMBObjectSO: {fileID: 11400000, guid: 90048e967fc805e41890f6dba98d0868, type: 2}
+  crateContentType: 5
+  resourceAmount: 1

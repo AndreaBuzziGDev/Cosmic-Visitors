@@ -16,17 +16,24 @@ public class Crate : MonoSelfMoving
     }
 
     //DATA
-    eCrateContentType crateContentType;
+    [SerializeField] eCrateContentType crateContentType;
     public eCrateContentType CrateContentType { get { return crateContentType; } }
 
     //AMOUNT IN CRATE
-    int resourceAmount = 1;
+    [SerializeField] int resourceAmount = 1;
     public int ResourceAmount { get { return resourceAmount; } }
 
 
 
 
     //METHODS
+    //TECHNICAL
+    void Start()
+    {
+        StartRoutine();
+    }
+
+
 
     //COLLISIONS
     private void OnTriggerEnter2D(Collider2D other)
@@ -42,10 +49,5 @@ public class Crate : MonoSelfMoving
             Destroy(this.gameObject);
         }
     }
-
-
-
-
-
 
 }
