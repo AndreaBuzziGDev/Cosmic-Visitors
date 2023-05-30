@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: CRATES WILL BE SELF MOVING MONOs
-public class Crate : MonoBehaviour
+public class Crate : MonoSelfMoving
 {
     //ENUMS
     public enum eCrateContentType
@@ -24,9 +23,6 @@ public class Crate : MonoBehaviour
     int resourceAmount = 1;
     public int ResourceAmount { get { return resourceAmount; } }
 
-    //AUDIO
-    public AudioClip OnPickupAudio;
-
 
 
 
@@ -40,7 +36,6 @@ public class Crate : MonoBehaviour
         if (target != null)
         {
             //
-            AudioController.Instance.PlayClip(OnPickupAudio);
             target.ReloadWeaponSystem(this);
 
             //CRATE IS DESTROYED AFTER IT IS PICKED UP

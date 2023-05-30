@@ -2,6 +2,7 @@
 CREDITS
 
 
+VISUAL ART / SPRITES
 
 HEALTH BAR
 CharlExMachina - https://opengameart.org/content/futuristic-health-bar
@@ -23,6 +24,45 @@ KerteX_ - https://opengameart.org/content/wooden-box-0
 
 SPACESHIP KIT:
 BizmasterStudios - https://opengameart.org/content/spaceship-building-kit
+
+ASTEROID SPRITE:
+FunwithPixels - https://opengameart.org/content/a-layered-asteroid-rock
+
+
+
+
+AUDIO
+
+
+
+Rocket Shoot:
+https://freesound.org/people/wubitog/sounds/200459/
+
+Rocket Explosion:
+https://freesound.org/people/OwlStorm/sounds/404754/
+
+
+Energy Shield Activation:
+https://freesound.org/people/OwlStorm/sounds/404786/
+
+Energy Shield Hit:
+https://freesound.org/people/ejfortin/sounds/49667/
+
+
+Energy Barrier Activation:
+https://freesound.org/people/RunnerPack/sounds/87043/
+
+Energy Barrier Hit:
+https://freesound.org/people/ejfortin/sounds/49676/
+
+
+Empty Ammo Sound:
+https://freesound.org/people/nettimato/sounds/350349/
+
+
+Crate Pickup Sound:
+https://freesound.org/people/nettimato/sounds/372887/
+
 
 
 

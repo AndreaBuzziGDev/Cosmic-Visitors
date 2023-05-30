@@ -22,11 +22,9 @@ public abstract class MonoSelfMoving : MonoBehaviour, ISelfMoving
     }
 
 
+    //FUNCTIONALITIES
     //START ROUTINE
     protected virtual void StartRoutine() => SetStartVelocity();
-
-
-
 
 
 
@@ -39,12 +37,12 @@ public abstract class MonoSelfMoving : MonoBehaviour, ISelfMoving
         transform.Translate(Velocity * Time.deltaTime);
     }
 
-    //GET BASE DIRECTION
-    //TODO: OPTIMIZE EXISTING IMPLEMENTATION IN Projectile
+
+
     //UTILITIES
 
+    //GET BASE DIRECTION
     //USEFUL FOR BOTH BASE SPEED AND BASE BULLET PLACEMENT
-    //TODO: EXPORT AS A UTILITY? IN THE SAME CLASS THAT CONTAINS THE DIRECTION?
     public Vector2 GetBaseDirection()
     {
         return GetBaseDirection(mySMBObjectSO.Direction);

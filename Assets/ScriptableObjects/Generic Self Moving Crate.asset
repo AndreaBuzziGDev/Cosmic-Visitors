@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73798b5502c6ab84fb20093699dec2a6, type: 3}
-  m_Name: Stardust (Delete)
+  m_Name: Generic Self Moving Crate
   m_EditorClassIdentifier: 
   Direction: 2
   verticalDirectionModule: 0
-  SpeedModule: 10
-  MaxLifeTime: 15
+  SpeedModule: 3
+  MaxLifeTime: 50

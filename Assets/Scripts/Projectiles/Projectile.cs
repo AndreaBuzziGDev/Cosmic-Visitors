@@ -22,8 +22,10 @@ public class Projectile : MonoSelfMoving
         //DESTROY PARTICLES
         if (ProjectileScriptableObject.OnDestroyParticle != null)
         {
-            //TODO: DESTROY PARTICLE
-            GameObject.Instantiate(ProjectileScriptableObject.OnDestroyParticle, this.transform.position, Quaternion.identity, null);
+            Destroy(
+                GameObject.Instantiate(ProjectileScriptableObject.OnDestroyParticle, this.transform.position, Quaternion.identity, null),
+                5.0f
+            );
         }
 
         //DESTROY SOUND

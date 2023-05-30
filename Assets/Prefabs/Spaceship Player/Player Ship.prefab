@@ -196,6 +196,7 @@ MonoBehaviour:
   BulletCooldown: 0
   BulletPrefab: {fileID: 1342068892817292772, guid: 4f2cae7cea2ed4e4f80a7cb6b98ea8f7, type: 3}
   RocketPrefab: {fileID: 0}
+  CratePickupAudio: {fileID: 8300000, guid: 69229de0889a1344980cfd6c149ddee2, type: 3}
   SmallCannonTop: {fileID: 7053020901854603801}
   SmallCannonBottom: {fileID: 6094778980194564622}
   BigCannon: {fileID: 7736658028309067020}

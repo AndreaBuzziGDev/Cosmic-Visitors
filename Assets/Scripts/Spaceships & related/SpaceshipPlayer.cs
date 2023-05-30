@@ -17,14 +17,8 @@ public class SpaceshipPlayer : Spaceship
     private PlayerInput Input = null;
     private float MovementInputFactor = 0.0f;
 
-    //BULLETS
-    public float BulletCooldown = 0.0f;//UNUSED
-    public GameObject BulletPrefab;//TODO: REFECTOR TO ENFORCE MAINCANNONBULLET
-    public GameObject RocketPrefab;//TODO: IMPLEMENT
-
-
     //AUDIO
-    //TODO: CUSTOM AUDIO FOR MOVEMENT?
+    public AudioClip CratePickupAudio;
 
 
     //SPACESHIP EQUIPMENT
@@ -79,9 +73,21 @@ public class SpaceshipPlayer : Spaceship
         Input.Player.Movement.canceled += OnMovementCanceled;
 
         //SHOOT
-        //TODO: CORRECT
+        ///SMALL CANNONS
         Input.Player.ShootMainCannon.performed += OnSmallCannonsPerformed;
+
+        ///BIG CANNON
         Input.Player.ShootAdditionalCannon.performed += OnSecondaryCannonPerformed;
+
+        ///SHIELD
+
+
+        ///BARRIER
+
+
+        ///THRUSTER
+
+
 
 
 
@@ -99,22 +105,20 @@ public class SpaceshipPlayer : Spaceship
         Input.Player.Movement.canceled -= OnMovementCanceled;
 
         //SHOOT
-        //TODO: IMPLEMENT AND MIRROR ABOVE
         ///SMALL CANNONS
         Input.Player.ShootMainCannon.performed -= OnSmallCannonsPerformed;
-        Input.Player.ShootAdditionalCannon.performed -= OnSecondaryCannonPerformed;
 
         ///BIG CANNON
-        
+        Input.Player.ShootAdditionalCannon.performed -= OnSecondaryCannonPerformed;
 
         ///SHIELD
-        
+
 
         ///BARRIER
-        
+
 
         ///THRUSTER
-        
+
 
 
 
@@ -222,6 +226,10 @@ public class SpaceshipPlayer : Spaceship
     //UTILITIES
     public void ReloadWeaponSystem(Crate crate)
     {
+        //PLAY AUDIO
+        AudioController.Instance.PlayClip(CratePickupAudio);
+
+        //
         switch (crate.CrateContentType)
         {
             case Crate.eCrateContentType.SmallCannonEquip:
