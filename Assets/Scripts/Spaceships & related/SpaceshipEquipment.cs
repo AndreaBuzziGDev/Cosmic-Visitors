@@ -63,11 +63,14 @@ public class SpaceshipEquipment : MonoBehaviour
         }
 
         //IF AVAILABLE FOR USE...
-        UsageLogic();
+        if (ResourceCount > 0)
+        {
+            UsageLogic();
 
-        //MAKE UNAVAILABLE
-        IsAvailableForUse = false;
-        ActualCoolDown = UsageCooldown;
+            //MAKE UNAVAILABLE
+            IsAvailableForUse = false;
+            ActualCoolDown = UsageCooldown;
+        }
     }
 
 
@@ -104,6 +107,11 @@ public class SpaceshipEquipment : MonoBehaviour
         }
     }
 
+
+    public void Reload(int amount)
+    {
+        ResourceCount += amount;
+    }
 
 
 }

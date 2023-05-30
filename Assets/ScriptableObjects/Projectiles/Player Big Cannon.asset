@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8b610ad8c11240a0a95eb486879b3, type: 3}
+  m_Name: Player Big Cannon
+  m_EditorClassIdentifier: 
+  Direction: 3
+  verticalDirectionModule: 0
+  SpeedModule: 5
+  MaxLifeTime: 5
+  HitsPlayer: 0
+  HitsOtherProjectiles: 0
+  HitsVisitors: 1
+  BulletDamage: 10
+  PotencyTier: 2
+  Penetrates: 0
+  OnShotAudio: {fileID: 8300000, guid: 959ad47a542c9474286284202f954f57, type: 3}
+  OnTargetHitAudio: {fileID: 8300000, guid: 4c0ee1d0fa2ce954a8ff0363165e1814, type: 3}
+  OnDestroyParticle: {fileID: 6423491200273716522, guid: 5b101a07dc6d5ee4f9d71304f4a00add, type: 3}

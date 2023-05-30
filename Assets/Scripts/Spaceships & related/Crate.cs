@@ -2,12 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: CRATES WILL BE SELF MOVING MONOs
 public class Crate : MonoBehaviour
 {
+    //ENUMS
+    public enum eCrateContentType
+    {
+        SmallCannonEquip,//WILL NOT IMPLEMENT
+        BigCannonEquip,
+        ShieldEquip,
+        BarrierEquip,
+        ThrusterEquip,//WILL NOT IMPLEMENT
+        Health
+    }
+
     //DATA
-    CrateSO CrateScriptableObject;
+    eCrateContentType crateContentType;
+    public eCrateContentType CrateContentType { get { return crateContentType; } }
+
+    //AMOUNT IN CRATE
+    int resourceAmount = 1;
+    public int ResourceAmount { get { return resourceAmount; } }
+
+    //AUDIO
+    public AudioClip OnPickupAudio;
 
 
+
+
+    //METHODS
 
     //COLLISIONS
     private void OnTriggerEnter2D(Collider2D other)
@@ -16,17 +39,16 @@ public class Crate : MonoBehaviour
 
         if (target != null)
         {
-            //TODO: USE THE SPECIFIC IMPLEMENTATION INSIDE EACH CrateSO TO DELIVER WHAT'S NEEDED
-            CrateScriptableObject.PickUp(target);
-            /*
-            if (SpaceshipVisitorScriptableObject.CollidesWithPlayer)
-            {
-                DamagePlayer(target);
-                this.ReceiveDamage(maxHealthPoints);
-            }
-            */
+            //
+            AudioController.Instance.PlayClip(OnPickupAudio);
+            target.ReloadWeaponSystem(this);
+
+            //CRATE IS DESTROYED AFTER IT IS PICKED UP
+            Destroy(this.gameObject);
         }
     }
+
+
 
 
 

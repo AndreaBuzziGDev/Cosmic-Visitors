@@ -141,24 +141,21 @@ public class SpaceshipPlayer : Spaceship
     {
         //TODO: VALUES MIGHT HELP IN DETERMINING FEASIBILITY OF FULL-AUTO MANAGEMENT
         Debug.Log("OnSmallCannonsPerformed - value: " + value);
-        if (!GameStateController.Instance.IsPaused)
+        if (GameStateController.Instance.IsStrictlyPlaying)
         {
-            //TODO: IMPLEMENT WEAPON SYSTEMS / SpaceshipEquipment
             SmallCannonTop.Use();
             SmallCannonBottom.Use();
-
-            //TODO: USE WEAPON SYSTEMS
-            //GameObject.Instantiate(BulletPrefab, this.transform.position, Quaternion.identity, null);
         }
     }
 
     //SECONDARY CANNON
     private void OnSecondaryCannonPerformed(InputAction.CallbackContext value)
     {
-        if (!GameStateController.Instance.IsPaused)
+        //TODO: VALUES MIGHT HELP IN DETERMINING FEASIBILITY OF FULL-AUTO MANAGEMENT
+        Debug.Log("OnSmallCannonsPerformed - value: " + value);
+        if (GameStateController.Instance.IsStrictlyPlaying)
         {
-            //TODO: IMPLEMENT
-
+            BigCannon.Use();
         }
     }
 
@@ -223,14 +220,53 @@ public class SpaceshipPlayer : Spaceship
 
 
     //UTILITIES
+    public void ReloadWeaponSystem(Crate crate)
+    {
+        switch (crate.CrateContentType)
+        {
+            case Crate.eCrateContentType.SmallCannonEquip:
+                //WON'T BE ACTUALLY USED
+                SmallCannonTop.Reload(crate.ResourceAmount);
+                SmallCannonBottom.Reload(crate.ResourceAmount);
+                break;
+
+            case Crate.eCrateContentType.BigCannonEquip:
+                BigCannon.Reload(crate.ResourceAmount);
+                break;
+
+            case Crate.eCrateContentType.ShieldEquip:
+                //TODO: IMPLEMENT
+
+                break;
+
+            case Crate.eCrateContentType.BarrierEquip:
+                //TODO: IMPLEMENT
+
+                break;
+
+            case Crate.eCrateContentType.ThrusterEquip:
+                //WILL NOT IMPLEMENT
+
+                break;
+
+            case Crate.eCrateContentType.Health:
+                currentHealthPoints += crate.ResourceAmount;
+                break;
+
+        }
+    }
+
+
     public void UpdateHealthBar()
     {
         UIController.Instance.HealthBar.UpdateHealthBar(this);
     }
 
 
-    //TODO: STATES
-    //IN ORDER TO IMPLEMENT SOME MECHANICS, USE INVINCIBILITY STATE AND OTHER THINGS LIKE THAT
+
+
+
+
 
 
 }
