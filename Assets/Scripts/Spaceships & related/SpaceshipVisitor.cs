@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: CAN EXTEND MonoSelfMoving
-
 public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
 {
     //DATA
