@@ -34,6 +34,7 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
         SetStartVelocity();
 
         //TODO: SETUP RANDOMIZED CRATES
+        //      IT MIGHT BE MORE CONVENIENT TO RELY ON LOOT TABLES IN A DEDICATED CONTROLLER AND INSTANCIATE AN OBJECT REFERENCED THERE.
     }
 
     // Update is called once per frame
