@@ -9,16 +9,12 @@ public class GameStateControllerHelper
     //STARTING
     public static void StartGame()
     {
-        //RESET GAME
+        //DESTROY
+        GameController.Instance.DeleteAllVisitors();
+
+        //RESET
         GameController.Instance.HandleGameReset();
-
-        //TODO: CARRIED OVER FROM BREAKOUT, MIGHT BECOME UNNECESSARY AFTER EDITS
-        //TODO: THIS GAME WILL HAVE AN INTRO SEQUENCE (AS WELL AS LEVELING ONES) WHEN STARTING, EXPECT REWORKS
-        //UIController.Instance.ShowStartGame();//RE-SHOW AFTER TURNING OFF ALL UIs
-
-        //AFTER STARTING, PLAY
-        GameStateController.Instance.setState(GameStateController.eGameState.Playing);
-
+        UIController.Instance.ShowStartGame();
     }
 
 

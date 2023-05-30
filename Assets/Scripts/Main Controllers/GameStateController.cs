@@ -20,9 +20,14 @@ public class GameStateController : MonoSingleton<GameStateController>
 
     //DATA
     [SerializeField] private eGameState gameState = eGameState.Start;
+
+    public bool IsStarting { get { return this.gameState == eGameState.Start; } }
+
     public bool IsPaused { get { return this.gameState == eGameState.Paused; } }
 
     public bool IsPlaying { get { return this.gameState == eGameState.Playing || this.gameState == eGameState.Respawning; } }
+
+    public bool IsStrictlyPlaying { get { return this.gameState == eGameState.Playing; } }
 
     public bool IsRespawning { get { return this.gameState == eGameState.Respawning; } }
 
@@ -47,6 +52,7 @@ public class GameStateController : MonoSingleton<GameStateController>
         switch (gameState)
         {
             case eGameState.Start:
+                UIController.Instance.HideAllFullScreenPanels();
                 GameStateControllerHelper.StartGame();
                 break;
 

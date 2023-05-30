@@ -60,9 +60,13 @@ public class UIController : MonoSingleton<UIController>
     //START GAME PANEL
     public void ShowStartGame()
     {
+        //TODO: DISMISS
+        /*
         UIPS_Pause newUIPS = new UIPS_Pause(StartGamePanel);
         newUIPS.TakeOver(null);
         myUIPS = newUIPS;
+        */
+        StartGamePanel.SetActive(true);
     }
     public void HideStartGame() => StartGamePanel.SetActive(false);
 

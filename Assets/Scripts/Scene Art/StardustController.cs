@@ -6,8 +6,9 @@ public class StardustController : MonoSingleton<StardustController>
 {
     //DATA
     //PARTICLE EFFECT REFERENCES
-    public GameObject PlayingPE;
-    public GameObject LevelingPE;
+    public ParticleSystem PlayingPE;
+    public ParticleSystem LevelingPE;
+    bool HasPlayedLeveling = false;
 
 
     //METHODS
@@ -15,20 +16,18 @@ public class StardustController : MonoSingleton<StardustController>
     //TECHNICAL
     void Update()
     {
-
-        /*
-        PlayingPE.gameObject.SetActive(false);
-        LevelingPE.gameObject.SetActive(false);
-        */
-        if (GameStateController.Instance.IsLeveling)
+        if (GameStateController.Instance.IsStarting || GameStateController.Instance.IsLeveling)
         {
-            PlayingPE.gameObject.SetActive(false);
-            LevelingPE.gameObject.SetActive(true);
+            if (!HasPlayedLeveling)
+            {
+                LevelingPE.Clear();
+                LevelingPE.Play();
+                HasPlayedLeveling = true;
+            }
         }
-        else if (GameStateController.Instance.IsPlaying)
+        else
         {
-            PlayingPE.gameObject.SetActive(true);
-            LevelingPE.gameObject.SetActive(false);
+            HasPlayedLeveling = false;
         }
     }
 

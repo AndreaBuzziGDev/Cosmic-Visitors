@@ -51,12 +51,15 @@ public class VisitorGenerator : MonoBehaviour
     //Update
     private void Update()
     {
-        SpawnCooldown -= Time.deltaTime;
-        if (SpawnCooldown <= 0.0f)
+        if (GameStateController.Instance.IsStrictlyPlaying)
         {
-            SpawnCooldown = SpawnCooldownMax;
-            VisitorColumn myNewColumn = new VisitorColumn(Generator.GenerateColumn());
-            myNewColumn.SpawnVisitors();
+            SpawnCooldown -= Time.deltaTime;
+            if (SpawnCooldown <= 0.0f)
+            {
+                SpawnCooldown = SpawnCooldownMax;
+                VisitorColumn myNewColumn = new VisitorColumn(Generator.GenerateColumn());
+                myNewColumn.SpawnVisitors();
+            }
         }
     }
 

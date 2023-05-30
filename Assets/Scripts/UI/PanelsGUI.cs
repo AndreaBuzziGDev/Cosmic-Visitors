@@ -12,7 +12,7 @@ public class PanelsGUI : MonoBehaviour
 
     public static void PressResume()
     {
-        GameStateController.Instance.setState(GameStateController.eGameState.Start);
+        GameStateController.Instance.setState(GameStateController.eGameState.Playing);
     }
 
     public static void PressQuit()

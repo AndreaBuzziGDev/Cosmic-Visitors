@@ -73,8 +73,12 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
         {
             if (SpaceshipVisitorScriptableObject.CollidesWithPlayer)
             {
-                DamagePlayer(target);
-                this.ReceiveDamage(maxHealthPoints);
+                //COLLISION BEHAVIOUR NOT GOING TO WORK IF THE TARGET IS IN DAMAGE COOLDOWN
+                if (!target.IsInDamageCooldown)
+                {
+                    DamagePlayer(target);
+                    this.ReceiveDamage(maxHealthPoints);
+                }
             }
         }
 

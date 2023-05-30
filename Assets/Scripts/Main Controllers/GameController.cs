@@ -17,11 +17,6 @@ public class GameController : MonoSingleton<GameController>
     public int StartingLives { get { return startingLives; } }
 
 
-    //RESPAWN TIMER
-    [SerializeField] private float respawnMaxTimer = 3.0f;
-    public float RespawnMaxTimer { get { return respawnMaxTimer; } }
-
-
 
     //TECHNICAL
     //TODO: USE SERIALIZATION?
@@ -133,6 +128,16 @@ public class GameController : MonoSingleton<GameController>
 
         //TODO: RESET more?
 
+    }
+
+    //DELETE ALL VISITORS
+    public void DeleteAllVisitors()
+    {
+        var foundVisitors = FindObjectsOfType<SpaceshipVisitor>();
+        foreach(SpaceshipVisitor visitor in foundVisitors)
+        {
+            Destroy(visitor.gameObject);
+        }
     }
 
 

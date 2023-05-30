@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{2123604E-14A7-8376-1F61-E8B0B6016ADF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -60,7 +61,7 @@
     <Compile Include="Assets\Scripts\UI\UIPS_Pause.cs" />
     <Compile Include="Assets\Scripts\Other\LateralBorder.cs" />
     <Compile Include="Assets\Scripts\Visitor Random Generation\RGSimple.cs" />
-    <Compile Include="Assets\Scripts\UI\PanelRespawn.cs" />
+    <Compile Include="Assets\Scripts\UI\PanelUpdateable.cs" />
     <Compile Include="Assets\Scripts\Spaceships &amp; related\Spaceship.cs" />
     <Compile Include="Assets\Scripts\Scene Art\SelfMovingBackgroundObject.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\AudioController.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Scripts\Scene Art\StardustController.cs" />
     <Compile Include="Assets\Scripts\Main Patterns\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\GameController.cs" />
+    <Compile Include="Assets\Scripts\Spaceships &amp; related\ShipEquipment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
