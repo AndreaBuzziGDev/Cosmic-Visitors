@@ -65,6 +65,7 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
 
 
     //COLLISIONS
+    //TODO: COLLISIONS SHOULD BE PERSISTED. SEE IF OnTriggerStay or something else will do.
     private void OnTriggerEnter2D(Collider2D other)
     {
         SpaceshipPlayer target = other.gameObject.GetComponent<SpaceshipPlayer>();
@@ -76,6 +77,7 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
                 //COLLISION BEHAVIOUR NOT GOING TO WORK IF THE TARGET IS IN DAMAGE COOLDOWN
                 if (!target.IsInDamageCooldown)
                 {
+                    //TODO: SOME VISITORS DON'T BLOW UP ON IMPACT AND MIGHT NOT RECEIVE DAMAGE AT ALL (ASTEROIDS)
                     DamagePlayer(target);
                     this.ReceiveDamage(maxHealthPoints);
                 }

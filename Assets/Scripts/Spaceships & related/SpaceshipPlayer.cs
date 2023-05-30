@@ -27,6 +27,21 @@ public class SpaceshipPlayer : Spaceship
     //TODO: CUSTOM AUDIO FOR MOVEMENT?
 
 
+    //SPACESHIP EQUIPMENT
+    [SerializeField] SpaceshipEquipment SmallCannonTop;
+    [SerializeField] SpaceshipEquipment SmallCannonBottom;
+    [SerializeField] SpaceshipEquipment BigCannon;
+
+    [SerializeField] SpaceshipEquipment Shield;
+    [SerializeField] SpaceshipEquipment Barrier;
+
+    [SerializeField] SpaceshipEquipment ThrusterTop;
+    [SerializeField] SpaceshipEquipment ThrusterBottom;
+
+
+
+
+
 
     //METHODS
 
@@ -37,7 +52,6 @@ public class SpaceshipPlayer : Spaceship
         Input = new PlayerInput();
         rb2D = this.gameObject.GetComponent<Rigidbody2D>();
         transform.position = InitialPosition;
-        UpdateHealthBar();
     }
 
     protected override void Update()
@@ -65,8 +79,11 @@ public class SpaceshipPlayer : Spaceship
         Input.Player.Movement.canceled += OnMovementCanceled;
 
         //SHOOT
-        Input.Player.ShootMainCannon.performed += OnMainCannonPerformed;
+        //TODO: CORRECT
+        Input.Player.ShootMainCannon.performed += OnSmallCannonsPerformed;
         Input.Player.ShootAdditionalCannon.performed += OnSecondaryCannonPerformed;
+
+
 
         //ESCAPE
         Input.Player.Escape.performed += OnEscapePerformed;
@@ -82,8 +99,25 @@ public class SpaceshipPlayer : Spaceship
         Input.Player.Movement.canceled -= OnMovementCanceled;
 
         //SHOOT
-        Input.Player.ShootMainCannon.performed -= OnMainCannonPerformed;
+        //TODO: IMPLEMENT AND MIRROR ABOVE
+        ///SMALL CANNONS
+        Input.Player.ShootMainCannon.performed -= OnSmallCannonsPerformed;
         Input.Player.ShootAdditionalCannon.performed -= OnSecondaryCannonPerformed;
+
+        ///BIG CANNON
+        
+
+        ///SHIELD
+        
+
+        ///BARRIER
+        
+
+        ///THRUSTER
+        
+
+
+
 
         //ESCAPE
         Input.Player.Escape.performed -= OnEscapePerformed;
@@ -103,16 +137,18 @@ public class SpaceshipPlayer : Spaceship
 
     //SHOOT
     //MAIN CANNON
-    private void OnMainCannonPerformed(InputAction.CallbackContext value)
+    private void OnSmallCannonsPerformed(InputAction.CallbackContext value)
     {
+        //TODO: VALUES MIGHT HELP IN DETERMINING FEASIBILITY OF FULL-AUTO MANAGEMENT
+        Debug.Log("OnSmallCannonsPerformed - value: " + value);
         if (!GameStateController.Instance.IsPaused)
         {
-            //TODO: IMPLEMENT CANNON COOLDOWN
+            //TODO: IMPLEMENT WEAPON SYSTEMS / SpaceshipEquipment
+            SmallCannonTop.Use();
+            SmallCannonBottom.Use();
 
-            //TODO: IMPLEMENT
-            //TODO: COMBINE BULLET GAMEOBJECT PREFAB DICTIONARY WITH SCRIPTABLE OBJECTS
-            //TODO: BULLET PLACEMENT ON A FACTORY METHOD ON THE BULLET ITSELF
-            GameObject.Instantiate(BulletPrefab, this.transform.position, Quaternion.identity, null);
+            //TODO: USE WEAPON SYSTEMS
+            //GameObject.Instantiate(BulletPrefab, this.transform.position, Quaternion.identity, null);
         }
     }
 
