@@ -63,6 +63,10 @@ https://freesound.org/people/nettimato/sounds/350349/
 Crate Pickup Sound:
 https://freesound.org/people/nettimato/sounds/372887/
 
+Asteroid Explosion Sound:
+https://freesound.org/people/Prof.Mudkip/sounds/386862/
+
+
 
 
 

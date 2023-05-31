@@ -2771,7 +2771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafcd917e0500be4a92754c9449280d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GeneratorType: 0
+  GeneratorType: 1
   SpawnCooldownMax: 2
   SpawnCooldown: 0.2
   IsDebugMode: 1

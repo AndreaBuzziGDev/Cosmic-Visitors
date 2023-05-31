@@ -5,7 +5,6 @@ using UnityEngine;
 public class VisitorColumn
 {
     //ENUM
-    //TODO: DITCH. SHOULD USE A MORE SIMPLE IMPLEMENTATION. USE GAME OBJECT REFERENCES FROM THE VisitorGenerator CLASS
     public enum eSlotType
     {
         Empty,
@@ -22,8 +21,6 @@ public class VisitorColumn
     private GameObject[] _data = new GameObject[7];//WILL BE THE ACTUAL COLUMN OF OBJECTS SPAWNED IN THE GAME
     public GameObject[] Data { get { return _data; } }
 
-    //TODO: PERHAPS SHOULD BE MOVED ON ANOTHER ELEMENT OF CODE... LIKE VisitorGenerator
-    //TODO: COULD USE AN UPGRADE THAT ALLOWS DEBUGGING.
     public static float defaultCoordinatesX = 12.0f;
 
     private Vector3[] ColumnPositions = new Vector3[] {
@@ -36,8 +33,6 @@ public class VisitorColumn
         new Vector3(defaultCoordinatesX, -3, 0)
     };
     
-
-
 
     //DICTIONARY
     public static Dictionary<char, eSlotType> CharToSlotType = new Dictionary<char, eSlotType>() {
@@ -57,7 +52,6 @@ public class VisitorColumn
 
         if (DataString != null)
         {
-            //TODO: EXPORT AS DEDICATED METHOD/FUNCTIONALITY?
             if (DataString.Length > 7)
             {
                 DataString = DataString.Substring(0, 7);
@@ -95,9 +89,6 @@ public class VisitorColumn
 
 
     //METHODS
-
-
-    //TODO: POSSIBLE REFACTOR TO GameObject RETURN
     public void SpawnVisitors()
     {
         for (int i=0; i < _data.Length; i++)
@@ -107,7 +98,6 @@ public class VisitorColumn
         }
     }
 
-    //TODO: POSSIBLE REFACTOR TO GameObject RETURN
     public void SpawnVisitor(GameObject visitorInstance, int index)
     {
         if (visitorInstance != null)
@@ -135,7 +125,5 @@ public class VisitorColumn
             _ => null,
         };
     }
-
-
 
 }

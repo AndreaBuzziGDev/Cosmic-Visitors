@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class VisitorGenerator : MonoSingleton<VisitorGenerator>
 {
-    //USED TO RANDOMLY GENERATE VISITORS
-
     //ENUMS
     public enum eGeneratorType
     {
         SimpleRandomGenerator,
-        DebugGenerator//TODO: IMPLEMENT
+        DebugGenerator
     }
 
     public eGeneratorType GeneratorType;
@@ -21,26 +19,18 @@ public class VisitorGenerator : MonoSingleton<VisitorGenerator>
     public float SpawnCooldown = 0.5f;
 
 
-
-
     //VISITOR GENERATOR
-    public bool IsDebugMode = false;//TODO: IMPLEMENT/USE
+    public bool IsDebugMode = false;
     private RandomGenerator Generator;
+    VisitorColumn myNewColumn;
+
 
     //PREFABS
     public GameObject BaseBlueVisitorPrefab;
     public GameObject BaseRedVisitorPrefab;
     public GameObject FastBlueVisitorPrefab;
     public GameObject FastRedVisitorPrefab;
-
-    //TODO: DEDICATED HIT SOUND IN PREFAB
-    //TODO: DEDICATED EXPLOSION SOUND IN PREFAB
-    //TODO: DEDICATED EXPLOSION PARTICLE EFFECT IN PREFAB
-    public GameObject MeteoritePrefab;//TODO: WILL HAVE GUARANTEED "GOOD" LOOT
-    //TODO: MORE...
-
-
-    VisitorColumn myNewColumn;
+    public GameObject MeteoritePrefab;
 
 
 

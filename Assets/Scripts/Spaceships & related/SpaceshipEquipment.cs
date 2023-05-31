@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpaceshipEquipment : MonoBehaviour
 {
     //ENUMS
-    //TODO: "HEALTH EQUIPMENT" FOR SHIP?
     public enum eShipEquipmentType
     {
         Cannon,
@@ -17,7 +16,6 @@ public class SpaceshipEquipment : MonoBehaviour
 
 
     //DATA
-    //TODO: WILL USE SCRIPTABLE OBJECTS TO DEFINE PROTOTYPES
     [SerializeField] eShipEquipmentType ShipEquipmentType = eShipEquipmentType.Cannon;
 
 
@@ -25,17 +23,16 @@ public class SpaceshipEquipment : MonoBehaviour
     [SerializeField] int ResourceCount = 1;//USED FOR BOTH SHIELD CAPACITY AND AMMO COUNT
     [SerializeField] bool HasInfiniteCapacity = false;
 
-
-    public bool IsFullAuto = true;//TODO: HANDLING FULL AUTO MIGHT BE POINTLESS AT THIS POINT?
-    public bool IsAvailableForUse = true;
-    public float UsageCooldown = 1.0f;
-    private float ActualCoolDown = 0.0f;
-
+    [SerializeField] bool IsFullAuto = true;//UNUSED
+    [SerializeField] bool IsAvailableForUse = true;
+    [SerializeField] float UsageCooldown = 1.0f;
+    [SerializeField] float ActualCoolDown = 0.0f;
 
     [SerializeField] bool IsParented = false;
 
 
     //TODO: TOOLTIP
+    //TODO: RENAME AS "EquipmentPrefab"
     [SerializeField] GameObject EquipmentContent;//BULLET PREFAB, SHIELD PREFAB...
 
 
@@ -107,11 +104,9 @@ public class SpaceshipEquipment : MonoBehaviour
         }
     }
 
-
     public void Reload(int amount)
     {
         ResourceCount += amount;
     }
-
 
 }

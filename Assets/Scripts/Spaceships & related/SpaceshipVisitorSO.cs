@@ -8,6 +8,7 @@ public class SpaceshipVisitorSO : ScriptableObject
     //HEALTH & SCORING
     public bool CollidesWithPlayer = true;
     public int CollisionDamage = 1;
+    public bool SelfDestructOnCollision = true;
 
     //MOVEMENT
     public float speedModule = 2.0f;//USED TO CONTROL VISITOR MOVEMENT SPEED
@@ -19,6 +20,6 @@ public class SpaceshipVisitorSO : ScriptableObject
     public int AmmoCount = 1;
 
     //CRATES
-
+    public int crateChance = 1;//PERCENTAGE POINTS
 
 }

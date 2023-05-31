@@ -28,7 +28,6 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
     {
         base.Awake();
 
-        //TODO: THIS IS STILL BUGGED. FIND A SOLUTION.
         AmmoCount = SpaceshipVisitorScriptableObject.AmmoCount;
         BulletTimer += Random.Range(0, SpaceshipVisitorScriptableObject.BulletTimerRandomizer);
         SetStartVelocity();
@@ -59,7 +58,6 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
 
 
     //COLLISIONS
-    //TODO: COLLISIONS SHOULD BE PERSISTED. SEE IF OnTriggerStay or something else will do.
     private void OnTriggerEnter2D(Collider2D other)
     {
         SpaceshipPlayer target = other.gameObject.GetComponent<SpaceshipPlayer>();
@@ -71,9 +69,8 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
                 //COLLISION BEHAVIOUR NOT GOING TO WORK IF THE TARGET IS IN DAMAGE COOLDOWN
                 if (!target.IsInDamageCooldown)
                 {
-                    //TODO: SOME VISITORS DON'T BLOW UP ON IMPACT AND MIGHT NOT RECEIVE DAMAGE AT ALL (ASTEROIDS)
                     DamagePlayer(target);
-                    this.ReceiveDamage(maxHealthPoints);
+                    if(SpaceshipVisitorScriptableObject.SelfDestructOnCollision) this.ReceiveDamage(maxHealthPoints);
                 }
             }
         }
@@ -99,7 +96,7 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
                 //RESET BULLET: BASE COOLDOWN + RANDOMIZED DELAY
                 BulletTimer = SpaceshipVisitorScriptableObject.BulletCooldown + Random.Range(0, SpaceshipVisitorScriptableObject.BulletTimerRandomizer);
                 Shoot();
-                //TODO: THIS AFFECTS LITERALLY EVERYTHING IN THE SCENE. BEST NOT TO USE THIS AT ALL.
+
                 AmmoCount--;
             }
         }
@@ -117,6 +114,5 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
         );
 
     }
-
 
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//NB: THIS IS SUPPOSED TO BE UNUSED.
 public class UIPanelSequentiable
 {
     //DATA

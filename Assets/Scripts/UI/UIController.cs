@@ -17,9 +17,6 @@ public class UIController : MonoSingleton<UIController>
 
     public List<GameObject> AllFullScreenPanels;
 
-    //TODO: DISCARD.
-    private UIPanelSequentiable myUIPS;
-
     public HealthBar HealthBar;
 
 
@@ -43,8 +40,6 @@ public class UIController : MonoSingleton<UIController>
 
 
 
-    //TODO: HANDLE GUI PANELS IN A DEDICATED HELPER?
-
     //GUI PANELS MANAGEMENT
 
     //HIDE ALL
@@ -58,25 +53,18 @@ public class UIController : MonoSingleton<UIController>
 
 
     //START GAME PANEL
-    public void ShowStartGame()
-    {
-        //TODO: DISMISS
-        /*
-        UIPS_Pause newUIPS = new UIPS_Pause(StartGamePanel);
-        newUIPS.TakeOver(null);
-        myUIPS = newUIPS;
-        */
-        StartGamePanel.SetActive(true);
-    }
+    public void ShowStartGame() => StartGamePanel.SetActive(true);
     public void HideStartGame() => StartGamePanel.SetActive(false);
 
 
     //HELP PANEL
     public void ShowHelp()
     {
+        /*
         UIPanelSequentiable helpUIPS = new UIPanelSequentiable(HelpPanel);
         helpUIPS.TakeOver(myUIPS);
         myUIPS = helpUIPS;
+        */
     }
 
 
@@ -93,20 +81,6 @@ public class UIController : MonoSingleton<UIController>
         {
             GameStateController.Instance.setState(GameStateController.eGameState.Paused);
         }
-
-        //CARRIED OVER FROM BREAKOUT - BUT DISMISSED
-        /*
-        if (myUIPS != null)
-            //ESC BY DEFAULT CLOSES CURRENT MENU WHEN ANY ARE OPEN
-            myUIPS = myUIPS.GoBack();
-        else
-        {
-            //ESC BY DEFAULT OPENS PAUSE MENU WHEN NONE ARE OPEN
-            UIPS_Pause newUIPS = new UIPS_Pause(PauseGamePanel);
-            newUIPS.TakeOver(null);
-            myUIPS = newUIPS;
-        }
-        */
     }
 
     public void ShowPause() => PauseGamePanel.SetActive(true);
@@ -120,20 +94,8 @@ public class UIController : MonoSingleton<UIController>
 
 
 
-
     //GAME OVER PANEL
-    public void ShowGameOver()
-    {
-        //CARRIED OVER FROM BREAKOUT - BUT DISMISSED
-        /*
-        UIPanelSequentiable gameOverUIPS = new UIPanelSequentiable(GameOverPanel);
-        gameOverUIPS.TakeOver(null);
-
-        //DEFAULTING TO START
-        myUIPS = gameOverUIPS;
-        */
-        GameOverPanel.SetActive(true);
-    }
+    public void ShowGameOver() => GameOverPanel.SetActive(true);
     public void HideGameOver() => GameOverPanel.SetActive(false);
 
 
