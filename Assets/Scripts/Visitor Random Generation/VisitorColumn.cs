@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: REFACTOR AS NON-MONOBEHAVIOUR?
-public class VisitorColumn : MonoBehaviour
+public class VisitorColumn
 {
     //ENUM
     //TODO: DITCH. SHOULD USE A MORE SIMPLE IMPLEMENTATION. USE GAME OBJECT REFERENCES FROM THE VisitorGenerator CLASS
@@ -18,6 +17,8 @@ public class VisitorColumn : MonoBehaviour
     }
 
     //DATA
+    public string DataString;
+
     private GameObject[] _data = new GameObject[7];//WILL BE THE ACTUAL COLUMN OF OBJECTS SPAWNED IN THE GAME
     public GameObject[] Data { get { return _data; } }
 
@@ -35,8 +36,6 @@ public class VisitorColumn : MonoBehaviour
         new Vector3(defaultCoordinatesX, -3, 0)
     };
     
-    //TODO: RE-OPTIMIZE
-    //private VisitorGenerator myGen;
 
 
 
@@ -52,34 +51,33 @@ public class VisitorColumn : MonoBehaviour
 
 
     //CONSTRUCTOR
-    //TODO: GET RID OF CONSTRUCTOR. SHOULD NOT CONSTRUCT MONOBEHAVIOURS. USE FACTORY INSTEAD
-    public VisitorColumn(string inputString)
+    public VisitorColumn(string DataString)
     {
         char[] chars;
 
-        if (inputString != null)
+        if (DataString != null)
         {
             //TODO: EXPORT AS DEDICATED METHOD/FUNCTIONALITY?
-            if (inputString.Length > 7)
+            if (DataString.Length > 7)
             {
-                inputString = inputString.Substring(0, 7);
+                DataString = DataString.Substring(0, 7);
             } 
-            else if (inputString.Length < 7)
+            else if (DataString.Length < 7)
             {
-                while(inputString.Length < 7)
+                while(DataString.Length < 7)
                 {
-                    inputString += 'E';
+                    DataString += 'E';
                 }
             }
 
             chars = new char[] { 
-                inputString[0],
-                inputString[1],
-                inputString[2],
-                inputString[3],
-                inputString[4],
-                inputString[5],
-                inputString[6]
+                DataString[0],
+                DataString[1],
+                DataString[2],
+                DataString[3],
+                DataString[4],
+                DataString[5],
+                DataString[6]
             };
 
         }
@@ -96,13 +94,7 @@ public class VisitorColumn : MonoBehaviour
     }
 
 
-
     //METHODS
-    public void Start()
-    {
-        //TODO: THIS WAS DISMISSED DUE TO COMPLICATIONS RELATED TO THE USAGE OF CONSTRUCTOR.
-        //myGen = FindObjectOfType<VisitorGenerator>();
-    }
 
 
     //TODO: POSSIBLE REFACTOR TO GameObject RETURN
@@ -132,28 +124,16 @@ public class VisitorColumn : MonoBehaviour
     //RETURNS THE CORRESPONDING GAME OBJECT EXPECTED BASED ON CORRESPONDING eSlotType
     public GameObject GetMappedGameObject(eSlotType type)
     {
-        //TODO: RE-OPTIMIZE
-        VisitorGenerator myGen = FindObjectOfType<VisitorGenerator>();
-        switch (type)
+        //AUTO-OPTIMIZED BY IDE
+        return type switch
         {
-            case eSlotType.BaseBlueVisitor:
-                return myGen.BaseBlueVisitorPrefab;
-
-            case eSlotType.BaseRedVisitor:
-                return myGen.BaseRedVisitorPrefab;
-
-            case eSlotType.FastBlueVisitor:
-                return myGen.FastBlueVisitorPrefab;
-
-            case eSlotType.FastRedVisitor:
-                return myGen.FastRedVisitorPrefab;
-
-            case eSlotType.Meteorite:
-                return myGen.MeteoritePrefab;
-
-            default:
-                return null;
-        }
+            eSlotType.BaseBlueVisitor => VisitorGenerator.Instance.BaseBlueVisitorPrefab,
+            eSlotType.BaseRedVisitor => VisitorGenerator.Instance.BaseRedVisitorPrefab,
+            eSlotType.FastBlueVisitor => VisitorGenerator.Instance.FastBlueVisitorPrefab,
+            eSlotType.FastRedVisitor => VisitorGenerator.Instance.FastRedVisitorPrefab,
+            eSlotType.Meteorite => VisitorGenerator.Instance.MeteoritePrefab,
+            _ => null,
+        };
     }
 
 

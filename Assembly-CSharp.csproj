@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Main Patterns\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\GameController.cs" />
     <Compile Include="Assets\Scripts\Spaceships &amp; related\SpaceshipEquipment.cs" />
+    <Compile Include="Assets\Scripts\Visitor Random Generation\RGDebug.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

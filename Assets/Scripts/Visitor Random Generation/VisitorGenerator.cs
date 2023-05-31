@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisitorGenerator : MonoBehaviour
+public class VisitorGenerator : MonoSingleton<VisitorGenerator>
 {
     //USED TO RANDOMLY GENERATE VISITORS
 
@@ -40,10 +40,15 @@ public class VisitorGenerator : MonoBehaviour
     //TODO: MORE...
 
 
+    VisitorColumn myNewColumn;
+
+
+
+
     //METHODS
 
     //TECHNICAL
-    private void Awake()
+    private void Start()
     {
         Generator = GetReferenceGenerator(GeneratorType);
     }
@@ -57,7 +62,7 @@ public class VisitorGenerator : MonoBehaviour
             if (SpawnCooldown <= 0.0f)
             {
                 SpawnCooldown = SpawnCooldownMax;
-                VisitorColumn myNewColumn = new VisitorColumn(Generator.GenerateColumn());
+                myNewColumn = new VisitorColumn(Generator.GenerateColumn());
                 myNewColumn.SpawnVisitors();
             }
         }
@@ -72,6 +77,9 @@ public class VisitorGenerator : MonoBehaviour
         {
             case eGeneratorType.SimpleRandomGenerator:
                 return new RGSimple();
+
+            case eGeneratorType.DebugGenerator:
+                return new RGDebug();
 
             default:
                 return new RGSimple();
