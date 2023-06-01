@@ -87,7 +87,7 @@ public abstract class Spaceship : MonoBehaviour, IDamageable
 
 
     //IMPLEMENT IDamageable
-    public void ReceiveDamage(int damage)
+    public virtual void ReceiveDamage(int damage)
     {
         //HANDLE IMMUNITY TO DAMAGE
         if (!IsInDamageCooldown)

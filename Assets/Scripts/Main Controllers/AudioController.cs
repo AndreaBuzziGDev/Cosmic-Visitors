@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioController : MonoBehaviour
+public class AudioController : MonoSingleton<AudioController>
 {
     //DATA
     //TECHNICAL
-    public static AudioController Instance;
 
     //
     public AudioSource[] Sources;
@@ -15,10 +14,8 @@ public class AudioController : MonoBehaviour
     //METHODS
 
     //TECHNICAL
-    private void Awake()
+    private void Start()
     {
-        Instance = this;
-        Debug.Log("AudioController");
         Sources = GetComponents<AudioSource>();
     }
 

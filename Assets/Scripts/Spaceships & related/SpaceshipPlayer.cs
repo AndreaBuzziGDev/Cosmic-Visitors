@@ -32,7 +32,7 @@ public class SpaceshipPlayer : Spaceship
     [SerializeField] SpaceshipEquipment ThrusterBottom;
 
     //TODO: SHIELD WILL BE ITS OWN TYPE OF THING
-    [SerializeField] SpaceshipEquipment Shield;
+    [SerializeField] Shield PlayerShield;
 
 
 
@@ -195,6 +195,11 @@ public class SpaceshipPlayer : Spaceship
 
 
     //OVERRIDES
+    public override void ReceiveDamage(int damage)
+    {
+        base.ReceiveDamage(PlayerShield.TakeDamage(damage));
+    }
+
     public override void HandleDamageReceived()
     {
         //TODO: MAKE SPACESHIP SPRITE FLICKER

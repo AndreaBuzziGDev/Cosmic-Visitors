@@ -201,7 +201,7 @@ MonoBehaviour:
   Barrier: {fileID: 7967195039867323483}
   ThrusterTop: {fileID: 2531839616361791648}
   ThrusterBottom: {fileID: 8199675934527101053}
-  Shield: {fileID: 0}
+  PlayerShield: {fileID: 7184931369085115347}
 --- !u!1 &4786011688583723617
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +470,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5944684609850782152, guid: 1560cba353f706648bd2814c5541a55f, type: 3}
   m_PrefabInstance: {fileID: 6020464005207324583}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4689092261018962499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1342068892817292772, guid: 1560cba353f706648bd2814c5541a55f, type: 3}
+  m_PrefabInstance: {fileID: 6020464005207324583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7184931369085115347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4689092261018962499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1672fa8844bc9c3469fed17900385721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCapacity: 3
+  currentCapacity: 3
+  rechargeTimer: 7
+  currentRechargeTimer: 0
+  rechargeFactor: 0.5
+  lingeringTimer: 3
+  currentLingeringTimer: 0
 --- !u!1001 &6633662841450464425
 PrefabInstance:
   m_ObjectHideFlags: 0

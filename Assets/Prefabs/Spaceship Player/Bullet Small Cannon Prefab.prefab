@@ -133,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.13, y: 0.08}
   m_EdgeRadius: 0
 --- !u!82 &2041223581212729247
 AudioSource:
@@ -155,7 +155,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.5645716
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
