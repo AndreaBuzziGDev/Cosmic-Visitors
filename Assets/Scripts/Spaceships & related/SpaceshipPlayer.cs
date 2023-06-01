@@ -202,10 +202,6 @@ public class SpaceshipPlayer : Spaceship
 
     public override void HandleDamageReceived()
     {
-        //TODO: MAKE SPACESHIP SPRITE FLICKER
-
-
-        //TODO: GIVE INVINCIBILITY FOR A SMALL FRACTION OF TIME
 
         //UPDATE GUI HEALTH BAR
         UpdateHealthBar();
