@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\Spaceships &amp; related\Shield.cs" />
     <Compile Include="Assets\Scripts\UI\EquipmentGUI.cs" />
     <Compile Include="Assets\Scripts\UI\ShieldBar.cs" />
+    <Compile Include="Assets\Scripts\UI\SpaceshipEquipGUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

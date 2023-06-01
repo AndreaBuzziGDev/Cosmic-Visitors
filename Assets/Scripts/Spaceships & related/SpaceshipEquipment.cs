@@ -7,7 +7,8 @@ public class SpaceshipEquipment : MonoBehaviour
     //ENUMS
     public enum eShipEquipmentType
     {
-        Cannon,
+        SmallCannon,
+        BigCannon,
         Barrier,
         Thruster
     }
@@ -15,14 +16,17 @@ public class SpaceshipEquipment : MonoBehaviour
 
 
     //DATA
-    [SerializeField] eShipEquipmentType ShipEquipmentType = eShipEquipmentType.Cannon;
+    [SerializeField] eShipEquipmentType ShipEquipmentType = eShipEquipmentType.SmallCannon;
 
 
-    //TODO: THIS IS SCRIPTABLE OBJECT-WORTHY DATA
+    //TODO: THIS IS SCRIPTABLE OBJECT-WORTHY DATA - SKIPPING DUE TO TIME LIMITS
     [SerializeField] int ResourceCount = 1;
-    [SerializeField] bool HasInfiniteCapacity = false;
+    public int ResourceAmount { get { return ResourceCount; } }
 
-    [SerializeField] bool IsFullAuto = true;//UNUSED
+    [SerializeField] bool HasInfiniteCapacity = false;
+    public bool IsInfinite { get { return HasInfiniteCapacity; } }
+
+
     [SerializeField] bool IsAvailableForUse = true;
     [SerializeField] float UsageCooldown = 1.0f;
     [SerializeField] float ActualCoolDown = 0.0f;
@@ -75,22 +79,31 @@ public class SpaceshipEquipment : MonoBehaviour
 
     private void UsageLogic()
     {
+        if (!HasInfiniteCapacity) ResourceCount--;
+
         switch (ShipEquipmentType)
         {
-            case eShipEquipmentType.Cannon:
+
+            case eShipEquipmentType.SmallCannon:
                 GameObject.Instantiate(EquipmentContent, this.transform.position, Quaternion.identity, null);
-                if (!HasInfiniteCapacity) ResourceCount--;
+                UIController.Instance.SmallCannonsGUI.UpdateGUI(this);
+                break;
+            case eShipEquipmentType.BigCannon:
+                GameObject.Instantiate(EquipmentContent, this.transform.position, Quaternion.identity, null);
+                UIController.Instance.BigCannonsGUI.UpdateGUI(this);
                 break;
 
             case eShipEquipmentType.Barrier:
+                //NB: BARRIER HAS BEEN DISCARDED DUE TO TIME LIMITS
                 //"PARENTED" BARRIER
                 if (IsParented) GameObject.Instantiate(EquipmentContent, this.transform.position, Quaternion.identity, transform);
                 //"FIRE AND FORGET" BARRIER
                 else GameObject.Instantiate(EquipmentContent, this.transform.position, Quaternion.identity, null);
+
                 break;
 
             case eShipEquipmentType.Thruster:
-                //TODO: IMPLEMENT
+                //NB: THRUSTERS HAVE BEEN DISCARDED DUE TO TIME LIMITS
                 //THRUSTERS WILL:
                 //1) "ROTATE" SPRITE
                 //2) GRANT INVINCIBILITY FRAMES/IMMUNITY TO COLLISIONS

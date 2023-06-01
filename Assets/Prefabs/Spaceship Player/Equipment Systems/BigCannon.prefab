@@ -47,8 +47,9 @@ MonoBehaviour:
   ShipEquipmentType: 0
   ResourceCount: 3
   HasInfiniteCapacity: 0
-  IsFullAuto: 1
+  IsFullAuto: 0
   IsAvailableForUse: 1
   UsageCooldown: 5
+  ActualCoolDown: 0
   IsParented: 0
   EquipmentContent: {fileID: 1342068892817292772, guid: bd9797cf122ded244974602d7318bc83, type: 3}

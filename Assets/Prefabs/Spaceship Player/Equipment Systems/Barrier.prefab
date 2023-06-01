@@ -46,9 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShipEquipmentType: 2
   ResourceCount: 1
-  HasInfiniteCapacity: 1
-  IsFullAuto: 1
+  HasInfiniteCapacity: 0
+  IsFullAuto: 0
   IsAvailableForUse: 1
-  UsageCooldown: 1
+  UsageCooldown: 5
+  ActualCoolDown: 0
   IsParented: 0
   EquipmentContent: {fileID: 0}

@@ -17,8 +17,14 @@ public class UIController : MonoSingleton<UIController>
 
     public List<GameObject> AllFullScreenPanels;
 
+    //GUI UPDATEABLE ELEMENTS
     public HealthBar HealthBar;
     public ShieldBar ShieldBar;
+
+    public SpaceshipEquipGUI SmallCannonsGUI;
+    public SpaceshipEquipGUI BigCannonsGUI;
+    //barrier...
+    //thruster...
 
 
 
