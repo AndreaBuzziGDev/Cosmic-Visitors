@@ -39,18 +39,10 @@ public class GameStateControllerHelper
 
 
 
-    //TODO: GAME OVER HANDLING
-
-
-
-
     //QUIT GAME
     public static void QuitGame()
     {
         Debug.Log("You Quit Game");
-
-        //TODO: IMPLEMENT BACK TO START MENU
-
     }
 
 

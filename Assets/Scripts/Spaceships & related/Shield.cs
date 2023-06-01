@@ -14,15 +14,18 @@ public class Shield : MonoBehaviour
 
     //RECHARGE
     [SerializeField] float rechargeTimer = 7.0f;
-    [SerializeField] float currentRechargeTimer = 0.0f;
-    [SerializeField] float rechargeFactor = 0.5f;
+    float currentRechargeTimer = 0.0f;
     public bool IsInRechargeCooldown { get { return currentRechargeTimer > 0.0f; } }
+
+    //TEMPORAL FACTOR FOR RECHARGE
+    [SerializeField] float rechargeFactor = 0.5f;
 
 
     //VISUAL FEEDBACK
     private SpriteRenderer shieldSprite;
     [SerializeField] float lingeringTimer = 3.0f;
-    [SerializeField] float currentLingeringTimer = 0.0f;
+    float currentLingeringTimer = 0.0f;
+
     public bool IsLingering { get { return currentLingeringTimer > 0.0f; } }
 
 
@@ -42,7 +45,8 @@ public class Shield : MonoBehaviour
     {
         currentLingeringTimer = lingeringTimer;
         shieldSprite = GetComponent<SpriteRenderer>();
-        
+
+        UpdateShieldBar();
     }
 
     // Update is called once per frame
@@ -92,23 +96,14 @@ public class Shield : MonoBehaviour
         shieldSprite.color = newColor;
     }
 
-
-
-    public void UpdateShieldBar()
-    {
-        UIController.Instance.ShieldBar.UpdateShieldBar(this);
-    }
+    //GUI UPDATE
+    public void UpdateShieldBar() => UIController.Instance.ShieldBar.UpdateShieldBar(this);
 
 
 
     //FUNCTIONALITIES
     public int TakeDamage(int incomingDamage)
     {
-
-        Debug.Log("incomingDamage ENTER " + incomingDamage);
-        Debug.Log("currentCapacity ENTER " + currentCapacity);
-        Debug.Log("currentCells ENTER " + currentCells);
-
         //HANDLING CAPACITY CHANGES
         int outgoingDamage = incomingDamage - currentCells;
         if (outgoingDamage <= 0) outgoingDamage = 0;
@@ -119,11 +114,6 @@ public class Shield : MonoBehaviour
         //COOLDOWN TO RECHARGE
         currentRechargeTimer = rechargeTimer;
         currentLingeringTimer = lingeringTimer;
-
-        Debug.Log("currentCapacity OUT " + currentCapacity);
-        Debug.Log("currentCells OUT " + currentCells);
-        Debug.Log("incomingDamage " + incomingDamage);
-        Debug.Log("outgoingDamage " + outgoingDamage);
 
         return outgoingDamage;
     }

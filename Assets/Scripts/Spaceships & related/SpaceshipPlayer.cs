@@ -31,7 +31,7 @@ public class SpaceshipPlayer : Spaceship
     [SerializeField] SpaceshipEquipment ThrusterTop;
     [SerializeField] SpaceshipEquipment ThrusterBottom;
 
-    //TODO: SHIELD WILL BE ITS OWN TYPE OF THING
+    //SHIP SHIELD
     [SerializeField] Shield PlayerShield;
 
 
@@ -50,6 +50,7 @@ public class SpaceshipPlayer : Spaceship
         transform.position = InitialPosition;
     }
 
+
     protected override void Update()
     {
         base.Update();
@@ -63,7 +64,6 @@ public class SpaceshipPlayer : Spaceship
 
 
     //INPUT - EVENT-DRIVEN IMPLEMENTATION
-    //TODO: IMPLEMENT EVENT DRIVEN CODE LOGIC IN A DEDICATED INPUT HANDLER?
     private void OnEnable()
     {
         //ENABLE INPUT WHEN OBJECT ENABLED
@@ -80,9 +80,6 @@ public class SpaceshipPlayer : Spaceship
 
         ///BIG CANNON
         Input.Player.ShootAdditionalCannon.performed += OnSecondaryCannonPerformed;
-
-        ///SHIELD
-
 
         ///BARRIER
 
@@ -113,9 +110,6 @@ public class SpaceshipPlayer : Spaceship
         ///BIG CANNON
         Input.Player.ShootAdditionalCannon.performed -= OnSecondaryCannonPerformed;
 
-        ///SHIELD
-
-
         ///BARRIER
 
 
@@ -145,8 +139,6 @@ public class SpaceshipPlayer : Spaceship
     //MAIN CANNON
     private void OnSmallCannonsPerformed(InputAction.CallbackContext value)
     {
-        //TODO: VALUES MIGHT HELP IN DETERMINING FEASIBILITY OF FULL-AUTO MANAGEMENT
-        Debug.Log("OnSmallCannonsPerformed - value: " + value);
         if (GameStateController.Instance.IsStrictlyPlaying)
         {
             SmallCannonTop.Use();
@@ -157,16 +149,14 @@ public class SpaceshipPlayer : Spaceship
     //SECONDARY CANNON
     private void OnSecondaryCannonPerformed(InputAction.CallbackContext value)
     {
-        //TODO: VALUES MIGHT HELP IN DETERMINING FEASIBILITY OF FULL-AUTO MANAGEMENT
-        Debug.Log("OnSmallCannonsPerformed - value: " + value);
         if (GameStateController.Instance.IsStrictlyPlaying)
         {
             BigCannon.Use();
         }
     }
 
-    //SHIELD, BARRIER, EVASION 
-    //TODO: IMPLEMENT
+    //SHIELD, BARRIER, THRUSTER 
+    //TODO: IMPLEMENT - NB: DISCARDED DUE TO TIME LIMITATIONS
 
 
 
@@ -195,10 +185,7 @@ public class SpaceshipPlayer : Spaceship
 
 
     //OVERRIDES
-    public override void ReceiveDamage(int damage)
-    {
-        base.ReceiveDamage(PlayerShield.TakeDamage(damage));
-    }
+    public override void ReceiveDamage(int damage) => base.ReceiveDamage(PlayerShield.TakeDamage(damage));
 
     public override void HandleDamageReceived()
     {

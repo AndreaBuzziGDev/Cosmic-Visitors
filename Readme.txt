@@ -8,6 +8,7 @@ CUT FEATURES (No Time left)
 - Leveling
 - Bosses (& Boss Levels)
 - Help panel in Menu
+- Equipment change (Crates only refill Ammo, Health, Shield)
 
 
 

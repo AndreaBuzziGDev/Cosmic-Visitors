@@ -6,7 +6,6 @@ public class GameStateController : MonoSingleton<GameStateController>
 {
     //ENUMS
     //STATES
-    //TODO: INTRODUCE STATE THAT DRIVES BACK TO MAIN MENU (Exiting)
     public enum eGameState
     {
         Start,
@@ -43,11 +42,11 @@ public class GameStateController : MonoSingleton<GameStateController>
 
     //TECHNICAL
 
-    //
+
+    //FUNCTIONALITIES
+    //...
     public void setState(eGameState targetState)
     {
-        Debug.Log("Target Game State: " + targetState);
-
         gameState = targetState;
         switch (gameState)
         {
@@ -73,7 +72,6 @@ public class GameStateController : MonoSingleton<GameStateController>
 
             case eGameState.GameOver:
                 UIController.Instance.ShowGameOver();
-                //TODO: DECIDE WHAT HAPPENS WHEN THE GAME IS OVER
 
                 break;
             case eGameState.Quitting:
@@ -81,10 +79,5 @@ public class GameStateController : MonoSingleton<GameStateController>
                 break;
         }
     }
-
-
-
-    //FUNCTIONALITIES
-    //...
 
 }
