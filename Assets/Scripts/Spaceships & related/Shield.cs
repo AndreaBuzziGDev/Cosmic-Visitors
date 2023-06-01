@@ -35,7 +35,7 @@ public class Shield : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //
+        //TODO: LINGER SHIELD AFTER START?
 
 
     }
@@ -86,8 +86,20 @@ public class Shield : MonoBehaviour
         currentCapacity += rechargedCapacity;
         if (currentCapacity > maxCapacity) currentCapacity = maxCapacity;
 
+        //TODO: LINGER SHIELD AFTER MANUAL RECHARGE?
+
         UpdateShieldBar();
     }
+
+    public void ManualBigRecharge(float rechargedCapacity)
+    {
+        //WILL IMMEDIATELY BYPASS COOLDOWNS
+        currentRechargeTimer = 0;
+        currentLingeringTimer = 0;
+
+        ManualRecharge(rechargedCapacity);
+    }
+
 
 
     public void UpdateShieldBar()

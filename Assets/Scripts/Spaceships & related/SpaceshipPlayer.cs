@@ -244,8 +244,9 @@ public class SpaceshipPlayer : Spaceship
                 BigCannon.Reload(crate.ResourceAmount);
                 break;
 
-            case Crate.eCrateContentType.ShieldEquip:
+            case Crate.eCrateContentType.ShieldCharge:
                 //TODO: IMPLEMENT
+                //THIS WILL EFFECTIVELY RECHARGE THE SHIELD IMMEDIATELY BY RESOURCEAMOUNT
 
                 break;
 
