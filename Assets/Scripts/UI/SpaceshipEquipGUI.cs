@@ -12,8 +12,7 @@ public class SpaceshipEquipGUI : MonoBehaviour
 
     public void UpdateGUI(SpaceshipEquipment equip)
     {
-        if (equip.IsInfinite) ResourceAmountText.text = "";
-        else ResourceAmountText.text = equip.ResourceAmount.ToString();
+        if (!equip.IsInfinite) ResourceAmountText.text = equip.ResourceAmount.ToString();
     }
 
 }
