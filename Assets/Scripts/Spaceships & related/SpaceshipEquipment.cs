@@ -117,6 +117,25 @@ public class SpaceshipEquipment : MonoBehaviour
     public void Reload(int amount)
     {
         ResourceCount += amount;
+        switch (ShipEquipmentType)
+        {
+
+            case eShipEquipmentType.SmallCannon:
+                UIController.Instance.SmallCannonsGUI.UpdateGUI(this);
+                break;
+            case eShipEquipmentType.BigCannon:
+                UIController.Instance.BigCannonsGUI.UpdateGUI(this);
+                break;
+
+            case eShipEquipmentType.Barrier:
+                //UNUSED
+                break;
+
+            case eShipEquipmentType.Thruster:
+                //UNUSED
+                break;
+        }
+
     }
 
 }

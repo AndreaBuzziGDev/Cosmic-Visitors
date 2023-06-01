@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8515a7bdf311d0044ad424e31c4d56db, type: 3}
   m_Name: Red Base Visitor
   m_EditorClassIdentifier: 
+  type: 2
   CollidesWithPlayer: 1
   CollisionDamage: 1
+  SelfDestructOnCollision: 1
   speedModule: 3
   BulletCooldown: 2
   BulletTimerRandomizer: 2
   VisitorBulletPrefab: {fileID: 1342068892817292772, guid: f92567115061ef84da8f2629da89f66e, type: 3}
   AmmoCount: 2
+  crateChance: 1
