@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "VisitorSO", menuName = "ScriptableObjects/Visitor")]
 public class SpaceshipVisitorSO : ScriptableObject
 {
+    //TYPE
+    public VisitorColumn.eSlotType type = VisitorColumn.eSlotType.BaseBlueVisitor;
+
     //HEALTH & SCORING
     public bool CollidesWithPlayer = true;
     public int CollisionDamage = 1;

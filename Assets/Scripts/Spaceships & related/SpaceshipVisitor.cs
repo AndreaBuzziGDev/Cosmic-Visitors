@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
 {
-    //DATA
-
     //SCRIPTABLE OBJECTS
     [SerializeField]
     SpaceshipVisitorSO SpaceshipVisitorScriptableObject;
+
+
+    //DATA
 
     //MOVEMENT
     Vector2 Velocity;
 
     //BULLET TIMER
-    private float BulletTimer = 1.0f;
+    float BulletTimer = 1.0f;
 
     //MIRRORING SpaceshipVisitorSO DATA FOR INSTANCE
-    public int AmmoCount;
+    int AmmoCount;
+    VisitorColumn.eSlotType type;
+    public VisitorColumn.eSlotType Type { get { return type; } }
 
 
     //METHODS
@@ -30,6 +33,7 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
 
         AmmoCount = SpaceshipVisitorScriptableObject.AmmoCount;
         BulletTimer += Random.Range(0, SpaceshipVisitorScriptableObject.BulletTimerRandomizer);
+        type = SpaceshipVisitorScriptableObject.type;
         SetStartVelocity();
 
         //TODO: SETUP RANDOMIZED CRATES

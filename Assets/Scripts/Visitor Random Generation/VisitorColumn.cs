@@ -12,7 +12,7 @@ public class VisitorColumn
         BaseRedVisitor,
         FastBlueVisitor,
         FastRedVisitor,
-        Meteorite
+        Asteroid
     }
 
     //DATA
@@ -41,7 +41,7 @@ public class VisitorColumn
         {'R', eSlotType.BaseRedVisitor},
         {'F', eSlotType.FastBlueVisitor},
         {'G', eSlotType.FastRedVisitor},
-        {'M', eSlotType.Meteorite}
+        {'M', eSlotType.Asteroid}
     };
 
 
@@ -121,7 +121,7 @@ public class VisitorColumn
             eSlotType.BaseRedVisitor => VisitorGenerator.Instance.BaseRedVisitorPrefab,
             eSlotType.FastBlueVisitor => VisitorGenerator.Instance.FastBlueVisitorPrefab,
             eSlotType.FastRedVisitor => VisitorGenerator.Instance.FastRedVisitorPrefab,
-            eSlotType.Meteorite => VisitorGenerator.Instance.MeteoritePrefab,
+            eSlotType.Asteroid => VisitorGenerator.Instance.MeteoritePrefab,
             _ => null,
         };
     }
