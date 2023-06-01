@@ -26,11 +26,13 @@ public class SpaceshipPlayer : Spaceship
     [SerializeField] SpaceshipEquipment SmallCannonBottom;
     [SerializeField] SpaceshipEquipment BigCannon;
 
-    [SerializeField] SpaceshipEquipment Shield;
     [SerializeField] SpaceshipEquipment Barrier;
 
     [SerializeField] SpaceshipEquipment ThrusterTop;
     [SerializeField] SpaceshipEquipment ThrusterBottom;
+
+    //TODO: SHIELD WILL BE ITS OWN TYPE OF THING
+    [SerializeField] SpaceshipEquipment Shield;
 
 
 

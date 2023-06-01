@@ -8,7 +8,6 @@ public class SpaceshipEquipment : MonoBehaviour
     public enum eShipEquipmentType
     {
         Cannon,
-        Shield,
         Barrier,
         Thruster
     }
@@ -20,7 +19,7 @@ public class SpaceshipEquipment : MonoBehaviour
 
 
     //TODO: THIS IS SCRIPTABLE OBJECT-WORTHY DATA
-    [SerializeField] int ResourceCount = 1;//USED FOR BOTH SHIELD CAPACITY AND AMMO COUNT
+    [SerializeField] int ResourceCount = 1;
     [SerializeField] bool HasInfiniteCapacity = false;
 
     [SerializeField] bool IsFullAuto = true;//UNUSED
@@ -65,8 +64,11 @@ public class SpaceshipEquipment : MonoBehaviour
             UsageLogic();
 
             //MAKE UNAVAILABLE
-            IsAvailableForUse = false;
-            ActualCoolDown = UsageCooldown;
+            if (UsageCooldown > 0.0f)
+            {
+                IsAvailableForUse = false;
+                ActualCoolDown = UsageCooldown;
+            }
         }
     }
 
@@ -78,11 +80,6 @@ public class SpaceshipEquipment : MonoBehaviour
             case eShipEquipmentType.Cannon:
                 GameObject.Instantiate(EquipmentContent, this.transform.position, Quaternion.identity, null);
                 if (!HasInfiniteCapacity) ResourceCount--;
-                break;
-
-            //TODO: SHIELDS, BARRIERS AND THRUSTERS MIGHT NEED FURTHER REFINEMENT AND SCRIPTING
-            case eShipEquipmentType.Shield:
-                GameObject.Instantiate(EquipmentContent, this.transform.position, Quaternion.identity, transform);
                 break;
 
             case eShipEquipmentType.Barrier:

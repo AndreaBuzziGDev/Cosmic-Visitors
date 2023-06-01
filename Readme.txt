@@ -25,7 +25,7 @@ KerteX_ - https://opengameart.org/content/wooden-box-0
 SPACESHIP KIT:
 BizmasterStudios - https://opengameart.org/content/spaceship-building-kit
 
-ASTEROID SPRITE:
+BIG ASTEROID SPRITE:
 FunwithPixels - https://opengameart.org/content/a-layered-asteroid-rock
 
 

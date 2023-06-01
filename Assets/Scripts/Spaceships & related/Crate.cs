@@ -9,7 +9,7 @@ public class Crate : MonoSelfMoving
     {
         SmallCannonEquip,//WILL NOT IMPLEMENT
         BigCannonEquip,
-        ShieldEquip,
+        ShieldCharge,
         BarrierEquip,
         ThrusterEquip,//WILL NOT IMPLEMENT
         Health
