@@ -233,9 +233,7 @@ public class SpaceshipPlayer : Spaceship
                 break;
 
             case Crate.eCrateContentType.ShieldCharge:
-                //TODO: IMPLEMENT
-                //THIS WILL EFFECTIVELY RECHARGE THE SHIELD IMMEDIATELY BY RESOURCEAMOUNT
-
+                PlayerShield.ManualRecharge(crate.ResourceAmount);
                 break;
 
             case Crate.eCrateContentType.BarrierEquip:

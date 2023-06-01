@@ -121,20 +121,22 @@ public class Shield : MonoBehaviour
 
     public void ManualRecharge(float rechargedCapacity)
     {
+        //HANDLE CAPACITY & MAX
         currentCapacity += rechargedCapacity;
         if (currentCapacity > maxCapacity) currentCapacity = maxCapacity;
 
-        //TODO: LINGER SHIELD AFTER MANUAL RECHARGE?
+        //LINGERS AFTER BEING MANUALLY CHARGED
+        currentLingeringTimer = lingeringTimer;
 
+        //GUI UPDATE
         UpdateShieldBar();
     }
 
+    //UNUSED
     public void ManualBigRecharge(float rechargedCapacity)
     {
-        //WILL IMMEDIATELY BYPASS COOLDOWNS
+        //SHIELD IMMEDIATELY STARTS RECHARGING
         currentRechargeTimer = 0;
-        currentLingeringTimer = 0;
-
         ManualRecharge(rechargedCapacity);
     }
 

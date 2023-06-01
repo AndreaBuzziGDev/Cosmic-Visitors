@@ -715,7 +715,7 @@ Transform:
   - {fileID: 429675314}
   - {fileID: 229601308}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &223699535
 MonoBehaviour:
@@ -1748,7 +1748,7 @@ Transform:
   - {fileID: 7652401}
   - {fileID: 299341733}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &432666202
 MonoBehaviour:
@@ -1897,6 +1897,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469156094}
   m_CullTransparentMesh: 1
+--- !u!1 &481822549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481822550}
+  - component: {fileID: 481822551}
+  m_Layer: 0
+  m_Name: LootTable Fast Red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &481822550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481822549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1798919608}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &481822551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481822549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0342e60f773b6954387fa71ce8ad6d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootCrateList:
+  - {fileID: 254651952985447683, guid: d088162d2b927e44a843ad5a71fe3a92, type: 3}
+  - {fileID: 254651952985447683, guid: 3faefaaa90d2590409bd64da73d5262f, type: 3}
+  - {fileID: 254651952985447683, guid: a55141155af09144aa85de7b4063a772, type: 3}
+  LootChancePercentage: 15
 --- !u!1 &500362590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,7 +3048,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &598250918
 GameObject:
@@ -3052,8 +3101,57 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &693297436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 693297437}
+  - component: {fileID: 693297438}
+  m_Layer: 0
+  m_Name: LootTable Base Blue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &693297437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693297436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1798919608}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &693297438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693297436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0342e60f773b6954387fa71ce8ad6d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootCrateList:
+  - {fileID: 254651952985447683, guid: 5e3e87d2be71f0545a618414c0e1fbeb, type: 3}
+  - {fileID: 254651952985447683, guid: 36052b6ac5417774ba933a840aaec123, type: 3}
+  - {fileID: 254651952985447683, guid: 64867ad3851175f4bbb220db5f157c8e, type: 3}
+  LootChancePercentage: 1
 --- !u!1 &703283295
 GameObject:
   m_ObjectHideFlags: 0
@@ -4283,6 +4381,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103581793}
   m_CullTransparentMesh: 1
+--- !u!1 &1155249746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1155249747}
+  - component: {fileID: 1155249748}
+  m_Layer: 0
+  m_Name: LootTable Fast Blue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1155249747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155249746}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1798919608}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1155249748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155249746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0342e60f773b6954387fa71ce8ad6d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootCrateList:
+  - {fileID: 254651952985447683, guid: 5e3e87d2be71f0545a618414c0e1fbeb, type: 3}
+  - {fileID: 254651952985447683, guid: 36052b6ac5417774ba933a840aaec123, type: 3}
+  - {fileID: 254651952985447683, guid: 64867ad3851175f4bbb220db5f157c8e, type: 3}
+  LootChancePercentage: 5
 --- !u!1 &1166317088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4737,6 +4884,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320837809}
   m_CullTransparentMesh: 1
+--- !u!1 &1344506489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344506490}
+  - component: {fileID: 1344506491}
+  m_Layer: 0
+  m_Name: LootTable Asteroid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1344506490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344506489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1798919608}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1344506491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344506489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0342e60f773b6954387fa71ce8ad6d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootCrateList:
+  - {fileID: 254651952985447683, guid: b2000156ccfcc124c863ef5ac498a08a, type: 3}
+  - {fileID: 254651952985447683, guid: c3c8658995a11e3429878334f34c112c, type: 3}
+  - {fileID: 254651952985447683, guid: e6825174e17cce54cbc6bbd3881fc7c8, type: 3}
+  LootChancePercentage: 100
 --- !u!1 &1359664350
 GameObject:
   m_ObjectHideFlags: 0
@@ -4982,7 +5178,7 @@ Transform:
   - {fileID: 223423293}
   - {fileID: 932054706}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491611758
 GameObject:
@@ -5490,6 +5686,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621945761}
   m_CullTransparentMesh: 1
+--- !u!1 &1710153626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1710153627}
+  - component: {fileID: 1710153628}
+  m_Layer: 0
+  m_Name: LootTable Base Red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1710153627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710153626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1798919608}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1710153628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710153626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0342e60f773b6954387fa71ce8ad6d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootCrateList:
+  - {fileID: 254651952985447683, guid: d088162d2b927e44a843ad5a71fe3a92, type: 3}
+  - {fileID: 254651952985447683, guid: 3faefaaa90d2590409bd64da73d5262f, type: 3}
+  - {fileID: 254651952985447683, guid: a55141155af09144aa85de7b4063a772, type: 3}
+  LootChancePercentage: 3
 --- !u!1 &1720862381
 GameObject:
   m_ObjectHideFlags: 0
@@ -5566,6 +5811,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720862381}
   m_CullTransparentMesh: 1
+--- !u!1 &1798919606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1798919608}
+  - component: {fileID: 1798919607}
+  m_Layer: 0
+  m_Name: LootTable Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1798919607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798919606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7f68f9832ab6d4dad4fa236798936f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseBlueVisitorLT: {fileID: 0}
+  BaseRedVisitorLT: {fileID: 0}
+  FastBlueVisitorLT: {fileID: 0}
+  FastRedVisitorLT: {fileID: 0}
+  AsteroidLT: {fileID: 0}
+--- !u!4 &1798919608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798919606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 401.3864, y: 262.386, z: -7.542686}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 693297437}
+  - {fileID: 1710153627}
+  - {fileID: 1155249747}
+  - {fileID: 481822550}
+  - {fileID: 1344506490}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1821902687
 GameObject:
   m_ObjectHideFlags: 0

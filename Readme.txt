@@ -52,6 +52,8 @@ Sholev - https://opengameart.org/content/shield-aura-effect
 Shield Bar:
 MortalPhoenix - https://opengameart.org/content/health-bar-0
 
+Pixel Font:
+Dizzy Crow - https://opengameart.org/content/font-retrospace
 
 
 
