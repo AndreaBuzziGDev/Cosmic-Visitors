@@ -7,6 +7,8 @@ public class Shield : MonoBehaviour
     //DATA
     //CAPACITY
     [SerializeField] int maxCapacity = 3;
+    public int MaxCapacity { get { return maxCapacity; } }
+
     [SerializeField] float currentCapacity = 3.0f;
     public int currentCells { get { return (int)currentCapacity; } }
 
@@ -25,7 +27,8 @@ public class Shield : MonoBehaviour
 
 
     //AUDIO
-
+    //TODO: IMPLEMENT HIT AUDIO
+    //TODO: IMPLEMENT MAX CAPACITY AUDIO?
 
 
 
@@ -93,8 +96,7 @@ public class Shield : MonoBehaviour
 
     public void UpdateShieldBar()
     {
-        //TODO: IMPLEMENT/UNCOMMENT
-        //UIController.Instance.UpdateShieldBar(this);
+        UIController.Instance.ShieldBar.UpdateShieldBar(this);
     }
 
 

@@ -92,6 +92,8 @@
     <Compile Include="Assets\Scripts\Spaceships &amp; related\SpaceshipEquipment.cs" />
     <Compile Include="Assets\Scripts\Visitor Random Generation\RGDebug.cs" />
     <Compile Include="Assets\Scripts\Spaceships &amp; related\Shield.cs" />
+    <Compile Include="Assets\Scripts\UI\EquipmentGUI.cs" />
+    <Compile Include="Assets\Scripts\UI\ShieldBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

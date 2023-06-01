@@ -1,5 +1,21 @@
 
+
+
+CUT FEATURES (No Time left)
+
+- "Barrier" weapon
+- "Thruster" weapon
+- Leveling
+- Bosses (& Boss Levels)
+- Help panel in Menu
+
+
+
+
+
+
 CREDITS
+
 
 
 VISUAL ART / SPRITES
@@ -27,6 +43,14 @@ BizmasterStudios - https://opengameart.org/content/spaceship-building-kit
 
 BIG ASTEROID SPRITE:
 FunwithPixels - https://opengameart.org/content/a-layered-asteroid-rock
+
+
+Shield aura:
+Sholev - https://opengameart.org/content/shield-aura-effect
+
+Shield Bar:
+MortalPhoenix - https://opengameart.org/content/health-bar-0
+
 
 
 

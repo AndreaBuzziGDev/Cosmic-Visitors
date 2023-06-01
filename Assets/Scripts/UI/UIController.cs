@@ -18,6 +18,7 @@ public class UIController : MonoSingleton<UIController>
     public List<GameObject> AllFullScreenPanels;
 
     public HealthBar HealthBar;
+    public ShieldBar ShieldBar;
 
 
 
