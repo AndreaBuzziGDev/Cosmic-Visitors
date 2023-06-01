@@ -214,7 +214,7 @@ public class SpaceshipPlayer : Spaceship
 
 
     //UTILITIES
-    public void ReloadWeaponSystem(Crate crate)
+    public void ReloadSpaceshipEquipment(Crate crate)
     {
         //PLAY AUDIO
         AudioController.Instance.PlayClip(CratePickupAudio);
@@ -239,12 +239,12 @@ public class SpaceshipPlayer : Spaceship
                 break;
 
             case Crate.eCrateContentType.BarrierEquip:
-                //TODO: IMPLEMENT
+                //NB: DISCARDED DUE TO TIME LIMITS
 
                 break;
 
             case Crate.eCrateContentType.ThrusterEquip:
-                //WILL NOT IMPLEMENT
+                //NB: DISCARDED DUE TO TIME LIMITS
 
                 break;
 

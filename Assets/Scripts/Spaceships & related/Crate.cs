@@ -43,7 +43,7 @@ public class Crate : MonoSelfMoving
         if (target != null)
         {
             //
-            target.ReloadWeaponSystem(this);
+            target.ReloadSpaceshipEquipment(this);
 
             //CRATE IS DESTROYED AFTER IT IS PICKED UP
             Destroy(this.gameObject);

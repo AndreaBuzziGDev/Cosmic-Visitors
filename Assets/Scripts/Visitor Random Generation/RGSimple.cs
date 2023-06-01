@@ -15,7 +15,7 @@ public class RGSimple : RandomGenerator
         string generatedString = "";
         for(int i = 0; i<7; i++)
         {
-            int typeNum = Random.Range(0, 100);//RETURNS NUMBERS BETWEEN 0 AND 5
+            int typeNum = Random.Range(0, 100);//RETURNS NUMBERS BETWEEN 0 AND 99
             if (typeNum <1) generatedString += 'M';
             else if (typeNum < 20) generatedString += 'E';
             else if (typeNum < 45) generatedString += 'F';
