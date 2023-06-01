@@ -35,9 +35,6 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
         BulletTimer += Random.Range(0, SpaceshipVisitorScriptableObject.BulletTimerRandomizer);
         type = SpaceshipVisitorScriptableObject.type;
         SetStartVelocity();
-
-        //TODO: SETUP RANDOMIZED CRATES
-        //      IT MIGHT BE MORE CONVENIENT TO RELY ON LOOT TABLES IN A DEDICATED CONTROLLER AND INSTANCIATE AN OBJECT REFERENCED THERE.
     }
 
     // Update is called once per frame
@@ -52,7 +49,22 @@ public class SpaceshipVisitor : Spaceship, ISelfMoving, ICanDamagePlayer
 
     }
 
-    //
+
+
+    //FUNCTIONALITIES
+
+    //VISITORS DROP LOOT WHEN KILLED
+    public override void HandleZeroHP()
+    {
+        //CALC LOOT
+        Crate lootedCrate = LootTableController.Instance.HandleLoot(this);
+
+        //DROP LOOT
+        if(lootedCrate != null) GameObject.Instantiate(lootedCrate, this.transform.position, Quaternion.identity, null);
+
+        //BASE BEHAVIOUR
+        base.HandleZeroHP();
+    }
 
 
 

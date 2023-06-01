@@ -5840,11 +5840,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7f68f9832ab6d4dad4fa236798936f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseBlueVisitorLT: {fileID: 0}
-  BaseRedVisitorLT: {fileID: 0}
-  FastBlueVisitorLT: {fileID: 0}
-  FastRedVisitorLT: {fileID: 0}
-  AsteroidLT: {fileID: 0}
+  BaseBlueVisitorLT: {fileID: 693297438}
+  BaseRedVisitorLT: {fileID: 1710153628}
+  FastBlueVisitorLT: {fileID: 1155249748}
+  FastRedVisitorLT: {fileID: 481822551}
+  AsteroidLT: {fileID: 1344506491}
 --- !u!4 &1798919608
 Transform:
   m_ObjectHideFlags: 0
