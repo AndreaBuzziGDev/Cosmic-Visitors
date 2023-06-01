@@ -108,7 +108,7 @@ public class SpaceshipEquipment : MonoBehaviour
                 //1) "ROTATE" SPRITE
                 //2) GRANT INVINCIBILITY FRAMES/IMMUNITY TO COLLISIONS
                 //3) GRANT FURTHER INVINCIBILITY AFTER "THRUST" HAS BEEN PERFORMED
-                //4) MOVE THE PLAYER - TODO: MIGHT NEED 2 THRUSTERS SO THAT IT MIGHT 
+                //4) MOVE THE PLAYER - TODO: MIGHT NEED 2 THRUSTERS SO THAT IT MIGHT GO UP AND DOWN
 
                 break;
         }
