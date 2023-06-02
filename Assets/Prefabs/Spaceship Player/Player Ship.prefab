@@ -504,6 +504,8 @@ MonoBehaviour:
   rechargeTimer: 7
   rechargeFactor: 0.5
   lingeringTimer: 3
+  OnDamagedAudio: {fileID: 8300000, guid: 8347ab0666eddf44e9c407253b249dc9, type: 3}
+  OnRechargeAudio: {fileID: 8300000, guid: 76fcd759345be014f89592cc256ef3f9, type: 3}
 --- !u!1001 &6633662841450464425
 PrefabInstance:
   m_ObjectHideFlags: 0

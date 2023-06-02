@@ -30,8 +30,9 @@ public class Shield : MonoBehaviour
 
 
     //AUDIO
-    //TODO: IMPLEMENT HIT AUDIO
-    //TODO: IMPLEMENT MAX CAPACITY AUDIO?
+    bool HasRecharged = false;
+    [SerializeField] AudioClip OnDamagedAudio;
+    [SerializeField] AudioClip OnRechargeAudio;
 
 
 
@@ -64,6 +65,14 @@ public class Shield : MonoBehaviour
         } 
         else
         {
+            //WHEN SHIELD STARTS RECHARGING, PLAY AUDIO AND VIDEO FEEDBACK
+            if (!HasRecharged)
+            {
+                AudioController.Instance.PlayClip(OnRechargeAudio);
+                currentLingeringTimer = lingeringTimer;
+                HasRecharged = true;
+            }
+
             //HANDLE RECHARGE & CAPACITY
             currentCapacity += (rechargeFactor * Time.deltaTime);
             if (currentCapacity > maxCapacity) currentCapacity = maxCapacity;
@@ -115,6 +124,15 @@ public class Shield : MonoBehaviour
         currentRechargeTimer = rechargeTimer;
         currentLingeringTimer = lingeringTimer;
 
+        //SHIELD HAS NOT RECHARGED AFTER BEING HIT
+        HasRecharged = false;
+
+        //PLAY DAMAGE SOUND IF SHIELD HAS PROTECTED PLAYER
+        if (incomingDamage > outgoingDamage)
+        {
+            AudioController.Instance.PlayClip(OnDamagedAudio);
+        }
+
         return outgoingDamage;
     }
 
@@ -126,7 +144,7 @@ public class Shield : MonoBehaviour
         if (currentCapacity > maxCapacity) currentCapacity = maxCapacity;
 
         //LINGERS AFTER BEING MANUALLY CHARGED
-        currentLingeringTimer = lingeringTimer;
+        HasRecharged = false;
 
         //GUI UPDATE
         UpdateShieldBar();
