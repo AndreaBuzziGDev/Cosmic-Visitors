@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-//TODO: IF THE CODE NEEDS TO BE RE-USED FOR DIFFERENT SCENES (WITH A MAIN MENU SCENE), THEN TURN THIS INTO AN ABSTRACT CLASS, CONCRETE CLASSES WILL BE USED TO MANAGE CONTEXTUALITY
 public class GameStateControllerHelper
 {
     //STARTING

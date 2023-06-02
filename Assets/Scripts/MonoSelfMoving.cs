@@ -8,7 +8,7 @@ public abstract class MonoSelfMoving : MonoBehaviour, ISelfMoving
 
     //OBJECT SPEED
     public SMBObjectSO mySMBObjectSO;
-    protected Vector2 Velocity;//TODO: CHANGE VISIBILITY?
+    protected Vector2 Velocity;
 
 
     //METHODS

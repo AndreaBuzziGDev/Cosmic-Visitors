@@ -11,7 +11,4 @@ public interface IDamageable
 
     public void HandleZeroHP();
 
-
-
-    //TODO: ON KILL STUFF?
 }

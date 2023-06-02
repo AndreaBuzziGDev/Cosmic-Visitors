@@ -77,8 +77,6 @@ public class Shield : MonoBehaviour
             currentCapacity += (rechargeFactor * Time.deltaTime);
             if (currentCapacity > maxCapacity) currentCapacity = maxCapacity;
 
-            //TODO: IF DEV TIME IS LEFT, MAKE SHIELD FLICKER WHEN IT STARTS RECHARGING
-
             UpdateShieldBar();
         }
 

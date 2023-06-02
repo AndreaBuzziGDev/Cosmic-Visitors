@@ -49,15 +49,11 @@ public class GameController : MonoSingleton<GameController>
     public void ResetLevel()
     {
         CurrentLevel = 0;
-        //TODO: UPDATE UI CORRECTLY
-        //UIController.Instance.UpdateScoreText(Score);
     }
 
     public void AddLevel(int _levels)
     {
         CurrentLevel += _levels;
-        //TODO: UPDATE UI CORRECTLY
-        //UIController.Instance.UpdateScoreText(Score);
     }
 
 
@@ -79,8 +75,6 @@ public class GameController : MonoSingleton<GameController>
         {
             //
             lives--;
-
-            //TODO: USE EVENT-ORIENTED PROGRAMMING
             UIController.Instance.UpdateLives(lives);
 
             //RESPAWNING
@@ -125,8 +119,6 @@ public class GameController : MonoSingleton<GameController>
 
         //RESET PLAYER SHIP
         ResetPlayer();
-
-        //TODO: RESET more?
 
     }
 
