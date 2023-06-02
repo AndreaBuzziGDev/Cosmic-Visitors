@@ -55,6 +55,11 @@ R - Shoot rocket launcher
 ESC - Pause
 
 
+HOW TO PLAY
+
+After retrieving the repository, open SampleScene and quick Play.
+
+
 
 
 CUT FEATURES (No Time left)
