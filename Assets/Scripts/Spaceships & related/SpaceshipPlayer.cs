@@ -92,6 +92,9 @@ public class SpaceshipPlayer : Spaceship
 
         //ESCAPE
         Input.Player.Escape.performed += OnEscapePerformed;
+
+        //RESET GUI
+        ResetGUI();
     }
 
     private void OnDisable()
@@ -262,8 +265,19 @@ public class SpaceshipPlayer : Spaceship
     }
 
 
+    //GUI RESET
+    public void ResetGUI()
+    {
+        //HEALTH BAR
+        UpdateHealthBar();
 
+        //BIG CANNON
+        UIController.Instance.BigCannonsGUI.UpdateGUI(BigCannon);
 
+        //SHIP SHIELD
+        UIController.Instance.ShieldBar.UpdateShieldBar(PlayerShield);
+
+    }
 
 
 
