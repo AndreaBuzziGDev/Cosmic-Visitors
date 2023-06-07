@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class AudioController : MonoSingleton<AudioController>
 {
@@ -21,14 +22,12 @@ public class AudioController : MonoSingleton<AudioController>
 
     public void PlayClip(AudioClip _clip)
     {
-        for (int i = 0; i < Sources.Length; i++)
+        //LINQ IMPLEMENTATION
+        AudioSource ausource = Sources.Where(s => !s.isPlaying).FirstOrDefault();
+        if (ausource != null)
         {
-            if (!Sources[i].isPlaying)
-            {
-                Sources[i].clip = _clip;
-                Sources[i].Play();
-                break;
-            }
+            ausource.clip = _clip;
+            ausource.Play();
         }
     }
 }
