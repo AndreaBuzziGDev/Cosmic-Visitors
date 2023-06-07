@@ -125,8 +125,7 @@ public class GameController : MonoSingleton<GameController>
     //DELETE ALL VISITORS
     public void DeleteAllVisitors()
     {
-        var foundVisitors = FindObjectsOfType<SpaceshipVisitor>();
-        foreach(SpaceshipVisitor visitor in foundVisitors)
+        foreach(SpaceshipVisitor visitor in FindObjectsOfType<SpaceshipVisitor>())
         {
             Destroy(visitor.gameObject);
         }
