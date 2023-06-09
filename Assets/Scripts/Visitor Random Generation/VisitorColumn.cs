@@ -23,7 +23,7 @@ public class VisitorColumn
 
     public static float defaultCoordinatesX = 12.0f;
 
-    private Vector3[] ColumnPositions = new Vector3[] {
+    private static Vector3[] columnPositions = new Vector3[] {
         new Vector3(defaultCoordinatesX, 3, 0),
         new Vector3(defaultCoordinatesX, 2, 0),
         new Vector3(defaultCoordinatesX, 1, 0),
@@ -32,7 +32,9 @@ public class VisitorColumn
         new Vector3(defaultCoordinatesX, -2, 0),
         new Vector3(defaultCoordinatesX, -3, 0)
     };
-    
+    public static Vector3[] ColumnPositions { get { return columnPositions; } }
+
+
 
     //DICTIONARY
     public static Dictionary<char, eSlotType> CharToSlotType = new Dictionary<char, eSlotType>() {
@@ -102,7 +104,7 @@ public class VisitorColumn
     {
         if (visitorInstance != null)
         {
-            GameObject.Instantiate(visitorInstance, ColumnPositions[index], Quaternion.identity, null);
+            GameObject.Instantiate(visitorInstance, columnPositions[index], Quaternion.identity, null);
         }
     }
 

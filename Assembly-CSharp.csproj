@@ -96,7 +96,7 @@
     <Compile Include="Assets\Scripts\Scene Art\StardustController.cs" />
     <Compile Include="Assets\Scripts\Main Patterns\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\GameController.cs" />
-    <Compile Include="Assets\Scripts\Debug\VisitorLane.cs" />
+    <Compile Include="Assets\Scripts\Debug\VisitorLanes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
