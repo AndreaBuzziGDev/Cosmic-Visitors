@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Main Patterns\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\Main Controllers\GameController.cs" />
     <Compile Include="Assets\Scripts\Debug\VisitorLanes.cs" />
+    <Compile Include="Assets\Scripts\Debug\MovementBoundaries.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
