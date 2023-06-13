@@ -12,7 +12,7 @@ public class VisitorLanes : MonoBehaviour
 #if UNITY_EDITOR
         foreach(Vector3 visitorLanePosition in VisitorColumn.ColumnPositions)
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.green;
             Gizmos.DrawLine(new Vector3(visitorLanePosition.x - Length, visitorLanePosition.y, 0), new Vector3(visitorLanePosition.x, visitorLanePosition.y, 0));
         }
 #endif

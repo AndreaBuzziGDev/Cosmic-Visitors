@@ -11,7 +11,7 @@ public class PlayerShipBoundaries : MonoBehaviour
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector3(Start, 4, 0), new Vector3(Start + HorizontalLength, 4, 0));
         Gizmos.DrawLine(new Vector3(Start, -4, 0), new Vector3(Start + HorizontalLength, -4, 0));
 
